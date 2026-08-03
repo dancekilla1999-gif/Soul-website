@@ -23,7 +23,7 @@ export function Gallery() {
   const slides = gallery.map((g) => ({ src: g.src, alt: g.alt }));
 
   return (
-    <section id="gallery" className="relative border-t border-white/10 bg-graphite/40 py-28 lg:py-40"
+    <section id="gallery" className="relative border-t border-white/[0.07] bg-graphite/40 py-20 sm:py-24 lg:py-36"
     >
       <JungleAmbience />
       <div className="container-wide">

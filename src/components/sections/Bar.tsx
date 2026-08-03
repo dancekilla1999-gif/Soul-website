@@ -30,7 +30,7 @@ export function Bar() {
   const y = useTransform(scrollYProgress, [0, 1], ["-7%", "7%"]);
 
   return (
-    <section className="relative border-t border-white/10 bg-graphite/40 py-28 lg:py-40">
+    <section className="relative border-t border-white/[0.07] bg-graphite/40 py-20 sm:py-24 lg:py-36">
       <div className="container-wide">
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <div className="order-2 lg:order-1">

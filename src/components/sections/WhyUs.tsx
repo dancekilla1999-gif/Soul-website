@@ -25,7 +25,7 @@ const icons: Record<string, LucideIcon> = {
 
 export function WhyUs() {
   return (
-    <section className="relative overflow-hidden py-28 lg:py-40">
+    <section className="relative overflow-hidden py-20 sm:py-24 lg:py-36">
       <div className="container-wide">
         <SectionHeading
           eyebrow="Почему SOUL"
@@ -40,7 +40,7 @@ export function WhyUs() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-10% 0px" }}
-          className="grid gap-px overflow-hidden rounded-sm border border-white/10 bg-white/[0.06] sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-px overflow-hidden rounded-sm border border-white/[0.07] bg-white/[0.06] sm:grid-cols-2 lg:grid-cols-3"
         >
           {advantages.map((item) => {
             const Icon = icons[item.icon] ?? Sparkles;

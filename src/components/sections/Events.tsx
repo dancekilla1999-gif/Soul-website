@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 
 export function Events() {
   return (
-    <section id="events" className="relative overflow-hidden py-28 lg:py-40">
+    <section id="events" className="relative overflow-hidden py-20 sm:py-24 lg:py-36">
       <div className="container-wide">
         <SectionHeading
           eyebrow="Афиша"
@@ -34,7 +34,7 @@ export function Events() {
               key={event.title}
               variants={staggerItem}
               className={cn(
-                "group relative overflow-hidden rounded-sm border border-white/10 bg-graphite/50",
+                "group relative overflow-hidden rounded-sm border border-white/[0.07] bg-graphite/50",
                 event.featured && "lg:border-gold/35"
               )}
             >
@@ -71,7 +71,7 @@ export function Events() {
                     {event.subtitle}
                   </p>
 
-                  <div className="mt-5 space-y-2 border-t border-white/10 pt-4">
+                  <div className="mt-5 space-y-2 border-t border-white/[0.07] pt-4">
                     <p className="flex items-center gap-2 text-xs tracking-wide2 text-bone/70">
                       <Clock className="h-3.5 w-3.5 text-gold" />
                       Начало в {event.time}

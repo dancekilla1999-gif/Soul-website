@@ -13,7 +13,7 @@ import {
 
 export function Faq() {
   return (
-    <section className="relative overflow-hidden py-28 lg:py-40">
+    <section className="relative overflow-hidden py-20 sm:py-24 lg:py-36">
       <div className="container-wide">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <div className="lg:sticky lg:top-32 lg:self-start">
@@ -42,7 +42,7 @@ export function Faq() {
           </div>
 
           <Reveal delay={0.1}>
-            <Accordion type="single" collapsible className="border-t border-white/10">
+            <Accordion type="single" collapsible className="border-t border-white/[0.07]">
               {faq.map((item, i) => (
                 <AccordionItem key={item.q} value={`item-${i}`}>
                   <AccordionTrigger>{item.q}</AccordionTrigger>

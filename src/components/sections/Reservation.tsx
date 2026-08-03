@@ -85,7 +85,7 @@ export function Reservation() {
   return (
     <section
       id="reserve"
-      className="relative isolate overflow-hidden border-t border-white/10 py-28 lg:py-40"
+      className="relative isolate overflow-hidden border-t border-white/[0.07] py-20 sm:py-24 lg:py-36"
     >
       <Image
         src="/images/lounge.jpg"
@@ -107,7 +107,7 @@ export function Reservation() {
             />
 
             <Reveal delay={0.15}>
-              <div className="mt-12 space-y-7 border-t border-white/10 pt-8">
+              <div className="mt-12 space-y-7 border-t border-white/[0.07] pt-8">
                 <div>
                   <p className="eyebrow">Телефон</p>
                   <a

@@ -41,7 +41,7 @@ export function Atmosphere() {
       <div className="absolute inset-x-0 top-0 z-[2] h-40 bg-fade-bottom" />
       <div className="absolute inset-x-0 bottom-0 z-[2] h-40 bg-fade-top" />
 
-      <div className="container-wide relative z-10 py-28 lg:py-40">
+      <div className="container-wide relative z-10 py-20 sm:py-24 lg:py-36">
         <div className="max-w-2xl">
           <Eyebrow>Атмосфера</Eyebrow>
 

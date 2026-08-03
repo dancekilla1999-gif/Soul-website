@@ -19,8 +19,8 @@ const config: Config = {
           soft: "#d6b789",
           deep: "#8a6c43",
         },
-        bone: "#f2f2f2",
-        ash: "#9a9187",
+        bone: "#f5f2ec",
+        ash: "#b5aca0",
         moss: "#232a20",
         emerald: {
           DEFAULT: "#0d5c4d",

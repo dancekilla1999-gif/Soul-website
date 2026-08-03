@@ -24,7 +24,7 @@ export function Menu() {
   );
 
   return (
-    <section id="menu" className="relative overflow-hidden py-28 lg:py-40">
+    <section id="menu" className="relative overflow-hidden py-20 sm:py-24 lg:py-36">
       <div className="container-wide">
         <div className="grid gap-12 lg:grid-cols-[1fr_auto] lg:items-end">
           <SectionHeading
@@ -42,7 +42,7 @@ export function Menu() {
         </div>
 
         <Reveal delay={0.1}>
-          <div className="mt-14 flex flex-wrap gap-x-8 gap-y-4 border-y border-white/10 py-5">
+          <div className="mt-14 flex flex-wrap gap-x-8 gap-y-4 border-y border-white/[0.07] py-5">
             {filters.map((f) => (
               <button
                 key={f}

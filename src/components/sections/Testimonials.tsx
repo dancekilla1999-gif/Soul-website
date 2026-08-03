@@ -33,7 +33,7 @@ export function Testimonials() {
   const current = testimonials[index];
 
   return (
-    <section className="relative isolate overflow-hidden py-28 lg:py-40">
+    <section className="relative isolate overflow-hidden py-20 sm:py-24 lg:py-36">
       <JungleAmbience />
       <Image
         src="/images/ambient-dark.jpg"

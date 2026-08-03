@@ -19,7 +19,7 @@ export function Contacts() {
   return (
     <section
       id="contacts"
-      className="relative border-t border-white/10 bg-graphite/40 py-28 lg:py-40"
+      className="relative border-t border-white/[0.07] bg-graphite/40 py-20 sm:py-24 lg:py-36"
     >
       <div className="container-wide">
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
@@ -31,7 +31,7 @@ export function Contacts() {
             />
 
             <Reveal delay={0.15}>
-              <ul className="mt-12 space-y-9 border-t border-white/10 pt-9">
+              <ul className="mt-12 space-y-9 border-t border-white/[0.07] pt-9">
                 <li className="flex gap-5">
                   <MapPin className="mt-1 h-5 w-5 shrink-0 text-gold" strokeWidth={1.4} />
                   <div>
@@ -110,7 +110,7 @@ export function Contacts() {
           </div>
 
           <Reveal delay={0.12} className="h-full">
-            <div className="relative h-[420px] overflow-hidden rounded-sm border border-white/10 lg:h-full lg:min-h-[540px]">
+            <div className="relative h-[420px] overflow-hidden rounded-sm border border-white/[0.07] lg:h-full lg:min-h-[540px]">
               <iframe
                 src={mapEmbed}
                 title={`Карта: ${site.name}, ${site.address.street}`}

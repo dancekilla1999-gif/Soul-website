@@ -15,7 +15,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -32,49 +32,51 @@ export function Navbar() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled
-          ? "border-b border-white/10 bg-noir/80 backdrop-blur-xl"
+        scrolled || open
+          ? "border-b border-white/[0.08] bg-noir/90 backdrop-blur-2xl"
           : "border-b border-transparent bg-transparent"
       )}
     >
-      <div className="container-wide relative flex h-22 items-center justify-between lg:h-28" style={{minHeight:'5.5rem'}}>
+      <div className="container-wide relative flex h-16 items-center justify-between sm:h-20 lg:h-24">
+        {/* Logo centered on mobile, left-ish on desktop via absolute */}
         <Link
           href="#hero"
           aria-label={`${site.name} — на главную`}
           className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2"
+          onClick={() => setOpen(false)}
         >
           <Image
             src="/images/logo.png"
             alt={site.name}
-            width={240}
-            height={70}
+            width={220}
+            height={64}
             priority
-            className="h-12 w-auto sm:h-13 lg:h-14"
+            className="h-9 w-auto sm:h-11 lg:h-12"
           />
         </Link>
 
-        <nav className="hidden flex-1 items-center gap-7 lg:flex">
+        <nav className="hidden flex-1 items-center gap-8 lg:flex">
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="group relative text-[13px] uppercase tracking-wide2 text-bone/80 transition-colors hover:text-bone"
+              className="group relative text-[12px] uppercase tracking-wide2 text-bone/75 transition-colors duration-300 hover:text-bone"
             >
               {item.label}
-              <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-5 lg:flex">
+        <div className="hidden items-center gap-6 lg:flex">
           <a
             href={`tel:${site.phoneHref}`}
-            className="flex items-center gap-2 text-[13px] tracking-wide2 text-bone/80 transition-colors hover:text-gold"
+            className="flex items-center gap-2 text-[12px] tracking-wide2 text-bone/75 transition-colors duration-300 hover:text-gold"
           >
-            <Phone className="h-3.5 w-3.5 text-gold" />
+            <Phone className="h-3.5 w-3.5 text-gold" strokeWidth={1.5} />
             {site.phone}
           </a>
-          <Magnetic strength={0.4}>
+          <Magnetic strength={0.35}>
             <Button asChild size="sm" data-cursor>
               <Link href="#reserve">Забронировать</Link>
             </Button>
@@ -82,11 +84,12 @@ export function Navbar() {
         </div>
 
         <button
-          aria-label="Меню"
+          aria-label={open ? "Закрыть меню" : "Открыть меню"}
+          aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="relative z-10 flex h-11 w-11 items-center justify-center text-bone lg:hidden"
+          className="relative z-30 flex h-11 w-11 items-center justify-center text-bone transition-colors hover:text-gold lg:hidden"
         >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {open ? <X className="h-5 w-5" strokeWidth={1.5} /> : <Menu className="h-5 w-5" strokeWidth={1.5} />}
         </button>
       </div>
 
@@ -96,21 +99,21 @@ export function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-0 flex flex-col bg-noir/98 backdrop-blur-xl lg:hidden"
+            transition={{ duration: 0.35 }}
+            className="fixed inset-0 z-20 flex flex-col bg-noir/98 backdrop-blur-2xl lg:hidden"
           >
-            <nav className="container-wide flex flex-1 flex-col justify-center gap-2">
+            <nav className="container-wide flex flex-1 flex-col justify-center gap-1 pt-16">
               {nav.map((item, i) => (
                 <motion.div
                   key={item.href}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.08 * i + 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ delay: 0.06 * i + 0.08, ease: [0.22, 1, 0.36, 1] }}
                 >
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="block py-3 font-serif text-3xl text-bone transition-colors hover:text-gold"
+                    className="block py-3.5 font-serif text-[1.75rem] text-bone transition-colors hover:text-gold"
                   >
                     {item.label}
                   </Link>
@@ -119,14 +122,14 @@ export function Navbar() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="mt-8 flex flex-col gap-4"
+                transition={{ delay: 0.45 }}
+                className="mt-10 flex flex-col gap-5 border-t border-white/[0.07] pt-8"
               >
                 <a
                   href={`tel:${site.phoneHref}`}
-                  className="flex items-center gap-2 text-sm tracking-wide2 text-bone/80"
+                  className="flex items-center gap-2.5 text-sm tracking-wide2 text-bone/80"
                 >
-                  <Phone className="h-4 w-4 text-gold" />
+                  <Phone className="h-4 w-4 text-gold" strokeWidth={1.5} />
                   {site.phone}
                 </a>
                 <Button asChild size="lg" className="w-full">

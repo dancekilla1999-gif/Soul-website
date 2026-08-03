@@ -13,21 +13,21 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-white/10 bg-graphite/60">
-      <div className="container-wide py-16 lg:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr]">
+    <footer className="relative border-t border-white/[0.07] bg-graphite/70">
+      <div className="container-wide py-14 sm:py-16 lg:py-20">
+        <div className="grid gap-10 sm:gap-12 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <Image
               src="/images/logo.png"
               alt={site.name}
-              width={150}
-              height={54}
-              className="h-10 w-auto"
+              width={140}
+              height={50}
+              className="h-9 w-auto"
             />
-            <p className="mt-6 max-w-sm text-pretty text-sm leading-relaxed text-ash">
+            <p className="mt-5 max-w-sm text-pretty text-sm leading-relaxed text-ash">
               {site.concept}. {site.tagline}.
             </p>
-            <div className="mt-7 flex items-center gap-3">
+            <div className="mt-6 flex items-center gap-2.5">
               {socials.map((s) => (
                 <a
                   key={s.label}
@@ -35,9 +35,9 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/12 text-bone/80 transition-all hover:border-gold hover:text-gold"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/12 text-bone/70 transition-all duration-300 hover:border-gold/50 hover:text-gold"
                 >
-                  <s.icon className="h-4 w-4" />
+                  <s.icon className="h-4 w-4" strokeWidth={1.5} />
                 </a>
               ))}
             </div>
@@ -45,12 +45,12 @@ export function Footer() {
 
           <div>
             <h3 className="eyebrow">Навигация</h3>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-4 space-y-2.5">
               {nav.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-ash transition-colors hover:text-gold"
+                    className="text-sm text-ash transition-colors duration-300 hover:text-gold"
                   >
                     {item.label}
                   </Link>
@@ -61,11 +61,11 @@ export function Footer() {
 
           <div>
             <h3 className="eyebrow">Контакты</h3>
-            <ul className="mt-5 space-y-3 text-sm text-ash">
+            <ul className="mt-4 space-y-2.5 text-sm text-ash">
               <li>
                 <a
                   href={`tel:${site.phoneHref}`}
-                  className="transition-colors hover:text-gold"
+                  className="transition-colors duration-300 hover:text-gold"
                 >
                   {site.phone}
                 </a>
@@ -73,28 +73,28 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${site.email}`}
-                  className="transition-colors hover:text-gold"
+                  className="transition-colors duration-300 hover:text-gold"
                 >
                   {site.email}
                 </a>
               </li>
-              <li className="pt-1 leading-relaxed">
+              <li className="pt-0.5 leading-relaxed">
                 {site.address.city}, {site.address.street}
               </li>
               {site.hours.map((h) => (
                 <li key={h.day} className="leading-relaxed">
-                  <span className="text-bone/70">{h.day}:</span> {h.time}
+                  <span className="text-bone/60">{h.day}:</span> {h.time}
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs tracking-wide2 text-ash/70 sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/[0.07] pt-7 text-[11px] tracking-wide2 text-ash/60 sm:mt-14 sm:flex-row sm:text-xs">
           <p>
             © {year} {site.name} · {site.nameRu}. Все права защищены.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-5">
             <Link href="#" className="transition-colors hover:text-gold">
               Политика конфиденциальности
             </Link>

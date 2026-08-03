@@ -32,13 +32,13 @@ export function SectionHeading({
       <TextReveal
         as="h2"
         text={title}
-        className="mt-5 text-balance text-4xl leading-[1.05] text-bone sm:text-5xl lg:text-[3.4rem]"
+        className="mt-4 text-balance text-[2rem] leading-[1.08] text-bone sm:mt-5 sm:text-5xl lg:text-[3.25rem]"
       />
       {intro && (
         <p
           className={cn(
-            "mt-5 text-pretty text-base leading-relaxed text-ash sm:text-lg",
-            align === "center" && "mx-auto"
+            "mt-5 text-pretty text-[15px] leading-[1.7] text-ash sm:text-base sm:leading-relaxed lg:text-lg",
+            align === "center" && "mx-auto max-w-xl"
           )}
         >
           {intro}
