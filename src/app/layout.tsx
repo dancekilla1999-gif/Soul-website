@@ -1,4 +1,5 @@
 import { VineGuide } from "@/components/shared/VineGuide";
+import { ScrollFog } from "@/components/shared/ScrollFog";
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
@@ -122,7 +123,8 @@ export default function RootLayout({
 
         <SmoothScroll>
           <main id="main">{children}
-        <VineGuide /></main>
+        <VineGuide />
+        <ScrollFog /></main>
           <Footer />
         </SmoothScroll>
 
