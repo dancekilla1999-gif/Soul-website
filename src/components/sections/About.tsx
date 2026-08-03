@@ -30,11 +30,11 @@ export function About() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
               <motion.div style={{ y }} className="absolute inset-[-6%]">
                 <Image
-                  src="/images/interior-hall.jpg"
-                  alt="Зал SOUL — хрусталь, зелень и тёплый свет"
+                  src="/images/oasis.jpg"
+                  alt="SOUL — оазис природы, живая зелень и свет"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-center"
+                  className="object-cover object-[center_40%]"
                 />
               </motion.div>
               <div className="absolute inset-0 bg-gradient-to-t from-noir/60 via-transparent to-transparent" />

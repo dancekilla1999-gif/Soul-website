@@ -150,30 +150,30 @@
   --emerald-soft: 26 138 114;
 }
 
-/* ========== REALISTIC TROPICAL VINE ========== */
+/* ========== HANGING TROPICAL VINE ========== */
 .vine-guide {
   position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
-  width: 72px;
+  width: 48px;
   z-index: 35;
   pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.5;
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  transform-style: preserve-3d;
+  overflow: hidden;
 }
 @media (min-width: 1024px) {
   .vine-guide {
-    width: 100px;
-    left: 0;
-    opacity: 0.75;
+    width: 64px;
+    left: 4px;
+    opacity: 0.7;
   }
 }
 @media (max-width: 640px) {
   .vine-guide {
-    width: 36px;
-    opacity: 0.35;
+    width: 28px;
+    opacity: 0.3;
   }
 }
 .vine-guide svg,
@@ -182,20 +182,7 @@
   inset: 0;
   height: 100%;
   width: 100%;
-  overflow: visible;
-}
-.vine-layer--back {
-  transform: translateZ(-30px) scale(1.03);
-  filter: blur(1.5px);
-  opacity: 0.4;
-}
-.vine-layer--main {
-  transform: translateZ(0);
-}
-.vine-layer--front {
-  transform: translateZ(20px) scale(0.97);
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-  opacity: 0.85;
+  overflow: hidden;
 }
 
 /* Jungle mist — very subtle, doesn't wash text */
