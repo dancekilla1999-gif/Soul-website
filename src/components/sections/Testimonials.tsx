@@ -39,9 +39,9 @@ export function Testimonials() {
         aria-hidden
         fill
         sizes="100vw"
-        className="-z-10 object-cover opacity-35"
+        className="-z-10 object-cover object-center opacity-25"
       />
-      <div className="absolute inset-0 -z-10 bg-noir/75" />
+      <div className="absolute inset-0 -z-10 bg-noir/85" />
       <div className="absolute inset-x-0 top-0 -z-10 h-40 bg-fade-bottom" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-fade-top" />
 
@@ -52,7 +52,7 @@ export function Testimonials() {
       >
         <Eyebrow align="center">Отзывы гостей</Eyebrow>
 
-        <div className="relative mx-auto mt-12 min-h-[280px] max-w-3xl text-center sm:min-h-[260px]">
+        <div className="relative z-10 mx-auto mt-12 min-h-[300px] max-w-3xl px-2 text-center sm:min-h-[280px]">
           <Quote
             aria-hidden
             className="mx-auto h-9 w-9 text-gold/40"
@@ -83,7 +83,7 @@ export function Testimonials() {
           </AnimatePresence>
         </div>
 
-        <div className="mt-10 flex items-center justify-center gap-6">
+        <div className="relative z-10 mt-12 flex items-center justify-center gap-6">
           <button
             aria-label="Предыдущий отзыв"
             onClick={() => go(-1)}

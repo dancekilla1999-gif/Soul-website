@@ -312,12 +312,12 @@ export const faq = [
 
 /* — Галерея — */
 export const gallery = [
-  { src: "/images/interior-hall.jpg", alt: "Зал SOUL — хрусталь и зелень", span: "tall" },
-  { src: "/images/atmosphere.jpg", alt: "Атмосфера SOUL — лучи света", span: "wide" },
-  { src: "/images/details.jpg", alt: "Детали SOUL", span: "square" },
+  { src: "/images/interior-hall.jpg", alt: "Зал SOUL — хрусталь и зелень", span: "square" },
+  { src: "/images/atmosphere.jpg", alt: "Атмосфера SOUL — лучи света", span: "square" },
   { src: "/images/gastronomy.jpg", alt: "Гастрономия SOUL", span: "square" },
-  { src: "/images/lounge.jpg", alt: "Lounge-зона SOUL", span: "tall" },
-  { src: "/images/states.jpg", alt: "Вечер в SOUL", span: "wide" },
-  { src: "/images/bar.jpg", alt: "Бар SOUL", span: "tall" },
+  { src: "/images/lounge.jpg", alt: "Lounge-зона SOUL", span: "square" },
+  { src: "/images/bar.jpg", alt: "Бар SOUL", span: "square" },
+  { src: "/images/details.jpg", alt: "Интерьер SOUL", span: "square" },
   { src: "/images/oasis.jpg", alt: "Оазис SOUL", span: "square" },
+  { src: "/images/hero.jpg", alt: "Концепция SOUL", span: "square" },
 ] as const;

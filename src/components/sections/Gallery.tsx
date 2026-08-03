@@ -11,8 +11,8 @@ import { staggerContainer, staggerItem } from "@/components/shared/Reveal";
 import { cn } from "@/lib/utils";
 
 const spanClass: Record<string, string> = {
-  tall: "row-span-2 aspect-[3/4] sm:aspect-auto",
-  wide: "sm:col-span-2 aspect-[16/10]",
+  tall: "aspect-square",
+  wide: "aspect-square",
   square: "aspect-square",
 };
 
@@ -40,7 +40,7 @@ export function Gallery() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-8% 0px" }}
-          className="grid auto-rows-[minmax(180px,auto)] grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-5"
+          className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 lg:gap-4"
         >
           {gallery.map((item, i) => (
             <motion.button
@@ -58,7 +58,7 @@ export function Gallery() {
                 alt={item.alt}
                 fill
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                className="object-cover object-center transition-transform duration-[1.2s] ease-out group-hover:scale-110"
+                className="object-cover object-[center_30%] transition-transform duration-[1.2s] ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-noir/25 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               <span className="absolute right-4 top-4 flex h-10 w-10 translate-y-2 items-center justify-center rounded-full border border-gold/50 bg-noir/50 text-gold opacity-0 backdrop-blur-sm transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">

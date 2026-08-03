@@ -124,3 +124,43 @@
     scroll-behavior: auto !important;
   }
 }
+
+
+/* Emerald accents */
+:root {
+  --emerald: 13 92 77;
+  --emerald-soft: 26 138 114;
+}
+
+/* Decorative vine guide along the page */
+.vine-guide {
+  position: fixed;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 48px;
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0.55;
+}
+@media (min-width: 1024px) {
+  .vine-guide { left: 18px; width: 56px; opacity: 0.7; }
+}
+@media (max-width: 640px) {
+  .vine-guide { left: 4px; width: 28px; opacity: 0.4; }
+}
+.vine-guide svg {
+  height: 100%;
+  width: 100%;
+}
+.vine-guide path {
+  fill: none;
+  stroke: url(#vineGrad);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+.vine-guide .leaf {
+  fill: rgba(26, 138, 114, 0.55);
+  stroke: rgba(176, 139, 90, 0.35);
+  stroke-width: 0.5;
+}

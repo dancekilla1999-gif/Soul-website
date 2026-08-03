@@ -22,6 +22,12 @@ const config: Config = {
         bone: "#f2f2f2",
         ash: "#9a9187",
         moss: "#232a20",
+        emerald: {
+          DEFAULT: "#0d5c4d",
+          soft: "#1a8a72",
+          deep: "#064036",
+          glow: "rgba(26,138,114,0.35)",
+        },
       },
       fontFamily: {
         serif: ["var(--font-cormorant)", "Cormorant Garamond", "Georgia", "serif"],
