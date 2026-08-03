@@ -37,23 +37,23 @@ export function Navbar() {
           : "border-b border-transparent bg-transparent"
       )}
     >
-      <div className="container-wide flex h-20 items-center justify-between lg:h-24">
+      <div className="container-wide relative flex h-22 items-center justify-between lg:h-28" style={{minHeight:'5.5rem'}}>
         <Link
           href="#hero"
           aria-label={`${site.name} — на главную`}
-          className="relative z-10 flex items-center"
+          className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2"
         >
           <Image
             src="/images/logo.png"
             alt={site.name}
-            width={132}
-            height={48}
+            width={240}
+            height={70}
             priority
-            className="h-8 w-auto lg:h-9"
+            className="h-12 w-auto sm:h-13 lg:h-14"
           />
         </Link>
 
-        <nav className="hidden items-center gap-9 lg:flex">
+        <nav className="hidden flex-1 items-center gap-7 lg:flex">
           {nav.map((item) => (
             <Link
               key={item.href}
