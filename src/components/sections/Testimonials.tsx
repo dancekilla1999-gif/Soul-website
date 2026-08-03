@@ -1,5 +1,6 @@
 "use client";
 
+import { JungleAmbience } from "@/components/shared/JungleAmbience";
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
@@ -33,6 +34,7 @@ export function Testimonials() {
 
   return (
     <section className="relative isolate overflow-hidden py-28 lg:py-40">
+      <JungleAmbience />
       <Image
         src="/images/ambient-dark.jpg"
         alt=""

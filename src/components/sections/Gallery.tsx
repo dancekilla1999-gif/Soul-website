@@ -1,5 +1,6 @@
 "use client";
 
+import { JungleAmbience } from "@/components/shared/JungleAmbience";
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -22,10 +23,9 @@ export function Gallery() {
   const slides = gallery.map((g) => ({ src: g.src, alt: g.alt }));
 
   return (
-    <section
-      id="gallery"
-      className="relative border-t border-white/10 bg-graphite/40 py-28 lg:py-40"
+    <section id="gallery" className="relative border-t border-white/10 bg-graphite/40 py-28 lg:py-40"
     >
+      <JungleAmbience />
       <div className="container-wide">
         <SectionHeading
           eyebrow="Галерея"

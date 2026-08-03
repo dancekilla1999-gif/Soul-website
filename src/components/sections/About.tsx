@@ -1,5 +1,6 @@
 "use client";
 
+import { JungleAmbience } from "@/components/shared/JungleAmbience";
 import Image from "next/image";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -22,6 +23,7 @@ export function About() {
 
   return (
     <section id="about" className="relative overflow-hidden py-28 lg:py-40">
+      <JungleAmbience />
       <div className="container-wide">
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <div ref={ref} className="relative">

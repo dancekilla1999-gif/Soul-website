@@ -1,5 +1,6 @@
 "use client";
 
+import { JungleAmbience } from "@/components/shared/JungleAmbience";
 import Image from "next/image";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -19,10 +20,9 @@ export function Atmosphere() {
 
   return (
     <section
-      ref={ref}
-      id="atmosphere"
-      className="relative flex min-h-[92svh] items-center overflow-hidden"
+      ref={ref} id="atmosphere" className="relative flex min-h-[92svh] items-center overflow-hidden"
     >
+      <JungleAmbience />
       <motion.div style={{ y }} className="absolute inset-[-12%] z-0">
         <Image
           src="/images/oasis.jpg"
