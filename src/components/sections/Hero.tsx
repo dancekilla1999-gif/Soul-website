@@ -14,9 +14,10 @@ export function Hero() {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "28%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
+  const rotateX = useTransform(scrollYProgress, [0, 1], [0, 4]);
 
   return (
     <section
@@ -24,7 +25,10 @@ export function Hero() {
       id="hero"
       className="relative flex h-[100svh] min-h-[640px] items-center justify-center overflow-hidden"
     >
-      <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
+      <motion.div
+        style={{ y, scale, rotateX, transformPerspective: 1200 }}
+        className="absolute inset-0 z-0 origin-center"
+      >
         <div className="absolute inset-0 animate-ken-burns">
           <Image
             src="/images/hero.jpg"

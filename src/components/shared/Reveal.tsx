@@ -41,16 +41,20 @@ export function Reveal({
     hidden: {
       opacity: 0,
       x,
-      y,
-      filter: blur ? "blur(12px)" : "blur(0px)",
+      y: y + 8,
+      z: -40,
+      filter: blur ? "blur(12px)" : "blur(4px)",
+      scale: 0.97,
     },
     visible: {
       opacity: 1,
       x: 0,
       y: 0,
+      z: 0,
       filter: "blur(0px)",
+      scale: 1,
       transition: {
-        duration: 0.9,
+        duration: 1,
         delay,
         ease: [0.22, 1, 0.36, 1],
       },

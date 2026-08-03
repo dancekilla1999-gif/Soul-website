@@ -1,5 +1,4 @@
 import { VineGuide } from "@/components/shared/VineGuide";
-import { ScrollFog } from "@/components/shared/ScrollFog";
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
@@ -122,9 +121,10 @@ export default function RootLayout({
         <Navbar />
 
         <SmoothScroll>
-          <main id="main">{children}
-        <VineGuide />
-        <ScrollFog /></main>
+          <main id="main" className="ar-depth-root">
+            {children}
+            <VineGuide />
+          </main>
           <Footer />
         </SmoothScroll>
 
