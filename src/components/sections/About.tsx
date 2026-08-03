@@ -32,7 +32,7 @@ export function About() {
                   alt="Зал SOUL — хрусталь, зелень и тёплый свет"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-cover object-center"
                 />
               </motion.div>
               <div className="absolute inset-0 bg-gradient-to-t from-noir/50 to-transparent" />

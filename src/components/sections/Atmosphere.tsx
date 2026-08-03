@@ -29,7 +29,7 @@ export function Atmosphere() {
           alt="Атмосфера SOUL — свет, зелень и хрусталь"
           fill
           sizes="100vw"
-          className="object-cover"
+          className="object-cover object-[center_30%]"
         />
       </motion.div>
 

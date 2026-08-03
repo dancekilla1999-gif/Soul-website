@@ -65,7 +65,7 @@ export function Bar() {
                   alt="Бар SOUL — приготовление авторских коктейлей"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-cover object-[center_25%]"
                 />
               </motion.div>
               <div className="absolute inset-0 bg-gradient-to-t from-noir/60 via-transparent to-transparent" />
