@@ -312,12 +312,12 @@ export const faq = [
 
 /* — Галерея — */
 export const gallery = [
-  { src: "/images/interior-hall.jpg", alt: "Хрустальная люстра и живая зелень", span: "square" },
-  { src: "/images/atmosphere.jpg", alt: "Лучи света в lounge", span: "square" },
-  { src: "/images/gastronomy.jpg", alt: "Красный бархат и зал", span: "square" },
-  { src: "/images/lounge.jpg", alt: "Вечерняя атмосфера SOUL", span: "square" },
-  { src: "/images/bar.jpg", alt: "Бармен SOUL", span: "square" },
-  { src: "/images/oasis.jpg", alt: "Оазис природы", span: "square" },
-  { src: "/images/hero.jpg", alt: "Концепция SOUL", span: "square" },
-  { src: "/images/details.jpg", alt: "Гастрономия и интерьер", span: "square" },
+  { src: "/images/hero.jpg", alt: "Оазис SOUL — свод зелени и хрусталя", span: "square" },
+  { src: "/images/interior-hall.jpg", alt: "Зал с хрустальными люстрами", span: "square" },
+  { src: "/images/atmosphere.jpg", alt: "Лучи света среди джунглей", span: "square" },
+  { src: "/images/bar.jpg", alt: "Бар SOUL — коктейли и атмосфера", span: "square" },
+  { src: "/images/oasis.jpg", alt: "Живая зелень и свет", span: "square" },
+  { src: "/images/lounge.jpg", alt: "Вечерний lounge", span: "square" },
+  { src: "/images/details.jpg", alt: "Детали интерьера", span: "square" },
+  { src: "/images/gastronomy.jpg", alt: "Барная стойка", span: "square" },
 ] as const;

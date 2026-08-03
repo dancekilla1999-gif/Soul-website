@@ -25,7 +25,7 @@ export function Atmosphere() {
       <JungleAmbience />
       <motion.div style={{ y }} className="absolute inset-[-12%] z-0">
         <Image
-          src="/images/oasis.jpg"
+          src="/images/atmosphere.jpg"
           alt="Атмосфера SOUL — свет, зелень и хрусталь"
           fill
           sizes="100vw"
