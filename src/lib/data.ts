@@ -13,7 +13,7 @@ export const site = {
     "SOUL — ресторан-lounge в центре Москвы: авторская кухня, коктейли, живая музыка и иммерсивные шоу под сводом зелени и хрусталя.",
   phone: "+7 995 764 8888",
   phoneHref: "+79957648888",
-  email: "reserve@soul-moscow.ru",
+  email: "reserve@soul.msk.ru",
   address: {
     street: "Холодильный переулок, 3, стр. 2",
     city: "Москва",
@@ -36,7 +36,7 @@ export const site = {
     telegram: "https://t.me/",
     whatsapp: "https://wa.me/79957648888",
   },
-  url: "https://soul-moscow.ru",
+  url: "https://soul.msk.ru",
 } as const;
 
 export const nav = [
