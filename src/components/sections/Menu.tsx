@@ -35,7 +35,7 @@ export function Menu() {
           <Reveal direction="left" delay={0.15}>
             <Magnetic strength={0.3}>
               <Button asChild variant="outline" size="lg" data-cursor>
-                <Link href="#reserve">Забронировать стол</Link>
+                <Link href="/contacts#reserve">Забронировать стол</Link>
               </Button>
             </Magnetic>
           </Reveal>

@@ -15,6 +15,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/shared/ScrollProgress";
+import { FloatingReserve } from "@/components/shared/FloatingReserve";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin", "cyrillic"],
@@ -128,6 +129,7 @@ export default function RootLayout({
           <Footer />
         </SmoothScroll>
 
+        <FloatingReserve />
         <Cursor />
         <Toaster />
       </body>

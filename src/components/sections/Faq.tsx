@@ -32,7 +32,7 @@ export function Faq() {
                   {site.phone}
                 </a>
                 <Link
-                  href="#reserve"
+                  href="/contacts#reserve"
                   className="inline-block text-[13px] uppercase tracking-wide2 text-ash transition-colors hover:text-gold"
                 >
                   Или забронируйте онлайн →

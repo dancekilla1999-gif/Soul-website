@@ -94,7 +94,7 @@ export function Events() {
 
         <div className="mt-14 flex justify-center">
           <Button asChild variant="gold" size="lg" data-cursor>
-            <Link href="#reserve">Забронировать на вечер</Link>
+            <Link href="/contacts#reserve">Забронировать на вечер</Link>
           </Button>
         </div>
       </div>

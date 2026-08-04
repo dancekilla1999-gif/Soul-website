@@ -40,12 +40,11 @@ export const site = {
 } as const;
 
 export const nav = [
-  { label: "О пространстве", href: "#about" },
-  { label: "Атмосфера", href: "#atmosphere" },
-  { label: "Кухня", href: "#menu" },
-  { label: "Афиша", href: "#events" },
-  { label: "Галерея", href: "#gallery" },
-  { label: "Контакты", href: "#contacts" },
+  { label: "О нас", href: "/about" },
+  { label: "Меню", href: "/menu" },
+  { label: "Афиша", href: "/events" },
+  { label: "Галерея", href: "/gallery" },
+  { label: "Контакты", href: "/contacts" },
 ] as const;
 
 /* — О пространстве / концепция — */

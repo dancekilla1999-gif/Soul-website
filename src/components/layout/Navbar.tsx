@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import { nav, site } from "@/lib/data";
@@ -13,6 +14,7 @@ import { Button } from "@/components/ui/button";
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -28,21 +30,26 @@ export function Navbar() {
     };
   }, [open]);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
         scrolled || open
-          ? "border-b border-white/[0.08] bg-noir/90 backdrop-blur-2xl"
+          ? "border-b border-white/[0.08] bg-noir/70 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       )}
     >
       <div className="container-wide relative flex h-16 items-center justify-between sm:h-20 lg:h-24">
-        {/* Logo centered on mobile, left-ish on desktop via absolute */}
+        {/* Logo — always solid, above blur */}
         <Link
-          href="#hero"
+          href="/"
           aria-label={`${site.name} — на главную`}
-          className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2"
+          className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]"
           onClick={() => setOpen(false)}
         >
           <Image
@@ -55,17 +62,28 @@ export function Navbar() {
           />
         </Link>
 
-        <nav className="hidden flex-1 items-center gap-8 lg:flex">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="group relative text-[12px] uppercase tracking-wide2 text-bone/75 transition-colors duration-300 hover:text-bone"
-            >
-              {item.label}
-              <span className="absolute -bottom-1 left-0 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
-            </Link>
-          ))}
+        <nav className="hidden flex-1 items-center gap-7 lg:flex">
+          {nav.map((item) => {
+            const active = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "group relative text-[12px] uppercase tracking-wide2 transition-colors duration-300",
+                  active ? "text-gold" : "text-bone/75 hover:text-bone"
+                )}
+              >
+                {item.label}
+                <span
+                  className={cn(
+                    "absolute -bottom-1 left-0 h-px bg-gold transition-all duration-300",
+                    active ? "w-full" : "w-0 group-hover:w-full"
+                  )}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden items-center gap-6 lg:flex">
@@ -78,7 +96,7 @@ export function Navbar() {
           </a>
           <Magnetic strength={0.35}>
             <Button asChild size="sm" data-cursor>
-              <Link href="#reserve">Забронировать</Link>
+              <Link href="/contacts#reserve">Забронировать</Link>
             </Button>
           </Magnetic>
         </div>
@@ -103,22 +121,28 @@ export function Navbar() {
             className="fixed inset-0 z-20 flex flex-col bg-noir/98 backdrop-blur-2xl lg:hidden"
           >
             <nav className="container-wide flex flex-1 flex-col justify-center gap-1 pt-16">
-              {nav.map((item, i) => (
-                <motion.div
-                  key={item.href}
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.06 * i + 0.08, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <Link
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="block py-3.5 font-serif text-[1.75rem] text-bone transition-colors hover:text-gold"
+              {nav.map((item, i) => {
+                const active = pathname === item.href;
+                return (
+                  <motion.div
+                    key={item.href}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.06 * i + 0.08, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    {item.label}
-                  </Link>
-                </motion.div>
-              ))}
+                    <Link
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className={cn(
+                        "block py-3.5 font-serif text-[1.75rem] transition-colors",
+                        active ? "text-gold" : "text-bone hover:text-gold"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                );
+              })}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -133,7 +157,7 @@ export function Navbar() {
                   {site.phone}
                 </a>
                 <Button asChild size="lg" className="w-full">
-                  <Link href="#reserve" onClick={() => setOpen(false)}>
+                  <Link href="/contacts#reserve" onClick={() => setOpen(false)}>
                     Забронировать столик
                   </Link>
                 </Button>

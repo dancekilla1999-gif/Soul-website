@@ -79,12 +79,12 @@ export function Hero() {
         >
           <Magnetic>
             <Button asChild size="lg" variant="gold" className="w-full sm:w-auto">
-              <Link href="#reserve">Забронировать столик</Link>
+              <Link href="/contacts#reserve">Забронировать столик</Link>
             </Button>
           </Magnetic>
           <Magnetic>
             <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
-              <Link href="#menu">Смотреть меню</Link>
+              <Link href="/menu">Смотреть меню</Link>
             </Button>
           </Magnetic>
         </motion.div>
