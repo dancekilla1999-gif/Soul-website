@@ -58,9 +58,9 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const lenis = lenisRef.current;
     if (lenis) {
-      lenis.scrollTo(0, { immediate: false, duration: 0.7 });
+      lenis.scrollTo(0, { immediate: true });
     } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo(0, 0);
     }
   }, [pathname]);
 

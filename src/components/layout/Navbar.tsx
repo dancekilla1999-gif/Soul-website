@@ -39,12 +39,10 @@ export function Navbar() {
       {/* Шапка: всегда прозрачная. При скролле — только лёгкий blur, без тёмной плашки. */}
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-[60] transition-[backdrop-filter] duration-500",
-          open
-            ? "bg-transparent"
-            : scrolled
-              ? "bg-transparent backdrop-blur-md supports-[backdrop-filter]:bg-noir/10"
-              : "bg-transparent"
+          "fixed inset-x-0 top-0 z-[60] transition-all duration-500",
+          // всегда прозрачная — текст страницы читается под шапкой
+          "bg-transparent border-none shadow-none",
+          scrolled && !open ? "backdrop-blur-[2px]" : ""
         )}
       >
         <div className="container-wide relative flex h-16 items-center justify-between sm:h-20 lg:h-24">
@@ -57,11 +55,13 @@ export function Navbar() {
           >
             <Image
               src="/images/logo.png"
+              placeholder="empty"
               alt={site.name}
               width={220}
               height={64}
               priority
-              className="h-9 w-auto sm:h-11 lg:h-12"
+              className="h-9 w-auto bg-transparent sm:h-11 lg:h-12"
+              style={{ background: "transparent" }}
             />
           </Link>
 

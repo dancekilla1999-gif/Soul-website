@@ -19,10 +19,12 @@ export function Footer() {
           <div>
             <Image
               src="/images/logo.png"
+              placeholder="empty"
               alt={site.name}
               width={140}
               height={50}
-              className="h-9 w-auto"
+              className="h-9 w-auto bg-transparent"
+              style={{ background: "transparent" }}
             />
             <p className="mt-5 max-w-sm text-pretty text-sm leading-relaxed text-ash">
               {site.concept}. {site.tagline}.

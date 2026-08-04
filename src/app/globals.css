@@ -284,3 +284,12 @@
     opacity: 0.4;
   }
 }
+
+
+/* Логотип без подложки / заливки */
+img[alt="SOUL"],
+img[src*="logo"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none;
+}
