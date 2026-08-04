@@ -16,6 +16,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/shared/ScrollProgress";
 import { FloatingReserve } from "@/components/shared/FloatingReserve";
+import { PageTransition, TransitionCurtain } from "@/components/providers/PageTransition";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin", "cyrillic"],
@@ -123,12 +124,13 @@ export default function RootLayout({
 
         <SmoothScroll>
           <main id="main" className="ar-depth-root">
-            {children}
+            <PageTransition>{children}</PageTransition>
             <VineGuide />
           </main>
           <Footer />
         </SmoothScroll>
 
+        <TransitionCurtain />
         <FloatingReserve />
         <Cursor />
         <Toaster />

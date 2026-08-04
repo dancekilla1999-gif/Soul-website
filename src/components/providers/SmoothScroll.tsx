@@ -1,13 +1,18 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 
 /**
  * Плавный «инерционный» скролл (Lenis).
- * Отключается автоматически при prefers-reduced-motion.
+ * При смене страницы — мягкий возврат к верху.
+ * Отключается при prefers-reduced-motion.
  */
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const lenisRef = useRef<Lenis | null>(null);
+
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) return;
@@ -18,6 +23,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       smoothWheel: true,
       touchMultiplier: 1.4,
     });
+    lenisRef.current = lenis;
 
     let frame = 0;
     const raf = (time: number) => {
@@ -44,8 +50,19 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       cancelAnimationFrame(frame);
       document.removeEventListener("click", onClick);
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
+
+  // Scroll to top on route change (soft)
+  useEffect(() => {
+    const lenis = lenisRef.current;
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: false, duration: 0.7 });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [pathname]);
 
   return <>{children}</>;
 }
