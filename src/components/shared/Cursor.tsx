@@ -1,32 +1,34 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 /**
- * Кастомный курсор SOUL — золотое кольцо с точкой и мягким свечением.
- * Только desktop (hover + fine pointer). System-курсор скрывается через CSS.
+ * Кастомный курсор SOUL — золотое кольцо + точка + свечение.
+ * Только desktop. System-курсор скрывается только после готовности кастомного.
  */
 export function Cursor() {
   const ringRef = useRef<HTMLDivElement>(null);
   const dotRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
-  const [enabled, setEnabled] = useState(false);
+  const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!fine || reduce) return;
 
-    setEnabled(true);
-    document.documentElement.classList.add("cursor-none-desktop");
-
     const ring = ringRef.current;
     const dot = dotRef.current;
     const glow = glowRef.current;
-    if (!ring || !dot || !glow) return;
+    const wrap = wrapRef.current;
+    if (!ring || !dot || !glow || !wrap) return;
 
-    let mx = window.innerWidth / 2;
-    let my = window.innerHeight / 2;
+    // Показываем кастомный курсор и только потом прячем системный
+    wrap.style.display = "block";
+    document.documentElement.classList.add("cursor-none-desktop");
+
+    let mx = -100;
+    let my = -100;
     let rx = mx;
     let ry = my;
     let frame = 0;
@@ -37,7 +39,7 @@ export function Cursor() {
       visible = true;
       ring.style.opacity = "1";
       dot.style.opacity = "1";
-      glow.style.opacity = "0.5";
+      glow.style.opacity = "1";
     };
 
     const hide = () => {
@@ -51,7 +53,6 @@ export function Cursor() {
       mx = e.clientX;
       my = e.clientY;
       show();
-      // Точка следует мгновенно
       dot.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
       glow.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
     };
@@ -72,58 +73,56 @@ export function Cursor() {
     const onLeave = () => hide();
 
     const loop = () => {
-      // Плавное следование кольца
-      rx += (mx - rx) * 0.18;
-      ry += (my - ry) * 0.18;
+      rx += (mx - rx) * 0.2;
+      ry += (my - ry) * 0.2;
       ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%)`;
       frame = requestAnimationFrame(loop);
     };
 
     window.addEventListener("mousemove", onMove, { passive: true });
     window.addEventListener("mouseover", onOver, { passive: true });
-    document.addEventListener("mouseleave", onLeave);
+    document.documentElement.addEventListener("mouseleave", onLeave);
     frame = requestAnimationFrame(loop);
 
     return () => {
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mouseover", onOver);
-      document.removeEventListener("mouseleave", onLeave);
+      document.documentElement.removeEventListener("mouseleave", onLeave);
       cancelAnimationFrame(frame);
       document.documentElement.classList.remove("cursor-none-desktop");
     };
   }, []);
 
-  if (!enabled) return null;
-
   return (
-    <>
-      {/* Мягкое свечение */}
+    <div ref={wrapRef} style={{ display: "none" }} aria-hidden>
+      {/* Свечение */}
       <div
         ref={glowRef}
-        aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[9998] h-24 w-24 rounded-full opacity-0 transition-opacity duration-300 data-[active=true]:opacity-70"
+        className="pointer-events-none fixed left-0 top-0 z-[9998] h-28 w-28 rounded-full opacity-0 transition-opacity duration-200"
         style={{
           background:
-            "radial-gradient(circle, rgba(214, 183, 137, 0.25) 0%, rgba(176, 139, 90, 0.08) 40%, transparent 70%)",
+            "radial-gradient(circle, rgba(214,183,137,0.22) 0%, rgba(176,139,90,0.06) 45%, transparent 70%)",
           willChange: "transform",
+          mixBlendMode: "screen",
         }}
       />
 
       {/* Кольцо */}
       <div
         ref={ringRef}
-        aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[9999] h-9 w-9 rounded-full border border-[#d6b789]/60 opacity-0 transition-[width,height,border-color,background-color] duration-300 data-[active=true]:h-14 data-[active=true]:w-14 data-[active=true]:border-[#d6b789] data-[active=true]:bg-[rgba(176,139,90,0.12)]"
+        className="pointer-events-none fixed left-0 top-0 z-[9999] h-10 w-10 rounded-full border-2 border-[#d6b789]/70 opacity-0 transition-[width,height,border-color,background-color,opacity] duration-200 data-[active=true]:h-14 data-[active=true]:w-14 data-[active=true]:border-[#e8d5b0] data-[active=true]:bg-[rgba(176,139,90,0.15)]"
         style={{ willChange: "transform" }}
       />
 
-      {/* Центральная точка */}
+      {/* Точка */}
       <div
         ref={dotRef}
-        aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[9999] h-1.5 w-1.5 rounded-full bg-[#d6b789] opacity-0 shadow-[0_0_8px_rgba(214,183,137,0.6)]"
-        style={{ willChange: "transform" }}
+        className="pointer-events-none fixed left-0 top-0 z-[9999] h-2 w-2 rounded-full bg-[#e8d5b0] opacity-0"
+        style={{
+          willChange: "transform",
+          boxShadow: "0 0 10px rgba(232,213,176,0.8), 0 0 4px rgba(176,139,90,0.9)",
+        }}
       />
-    </>
+    </div>
   );
 }
