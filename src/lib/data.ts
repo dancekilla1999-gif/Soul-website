@@ -1,43 +1,11 @@
 /**
  * Единый источник контента сайта SOUL.
- * Меняйте тексты, меню, афишу и контакты здесь — весь сайт обновится автоматически.
+ * Данные берутся из src/data/content.json — редактируются через /admin.
  */
 
-export const site = {
-  name: "SOUL",
-  nameRu: "СОУЛ",
-  legalName: "Ресторан SOUL",
-  tagline: "Живое пространство · Живые эмоции",
-  concept: "Оазис природы в сердце Москвы",
-  descriptionShort:
-    "SOUL — ресторан-lounge в центре Москвы: авторская кухня, коктейли, живая музыка и иммерсивные шоу под сводом зелени и хрусталя.",
-  phone: "+7 995 764 8888",
-  phoneHref: "+79957648888",
-  email: "reserve@soul.msk.ru",
-  address: {
-    street: "Холодильный переулок, 3, стр. 2",
-    city: "Москва",
-    postal: "115191",
-    country: "RU",
-    lat: 55.7124,
-    lng: 37.6231,
-  },
-  hours: [
-    { day: "Пятница — Суббота", time: "19:00 — 05:00" },
-    { day: "Воскресенье — Четверг", time: "По предварительному бронированию" },
-  ],
-  hoursSchema: [
-    { days: ["Friday", "Saturday"], opens: "19:00", closes: "05:00" },
-  ],
-  priceRange: "₽₽₽₽",
-  cuisine: ["Авторская", "Европейская", "Коктейльный бар"],
-  social: {
-    instagram: "https://instagram.com/",
-    telegram: "https://t.me/",
-    whatsapp: "https://wa.me/79957648888",
-  },
-  url: "https://soul.msk.ru",
-} as const;
+import content from "@/data/content.json";
+
+export const site = content.site;
 
 export const nav = [
   { label: "О нас", href: "/about" },
@@ -47,23 +15,8 @@ export const nav = [
   { label: "Контакты", href: "/contacts" },
 ] as const;
 
-/* — О пространстве / концепция — */
-export const conceptStates = [
-  {
-    title: "Спокойный ужин",
-    text: "Медленный вечер, авторская кухня и разговор, который никуда не спешит.",
-  },
-  {
-    title: "Встреча с близкими",
-    text: "Большой стол, коктейли и атмосфера, в которой время идёт иначе.",
-  },
-  {
-    title: "Ночь под музыку",
-    text: "Живые выступления и DJ-сеты, когда вечер меняет свой ритм.",
-  },
-] as const;
+export const conceptStates = content.conceptStates;
 
-/* — Почему SOUL — */
 export const advantages = [
   {
     icon: "Sparkles",
@@ -97,7 +50,6 @@ export const advantages = [
   },
 ] as const;
 
-/* — Меню — */
 export type MenuCategory = "Закуски" | "Основное" | "Из огня" | "Десерты" | "Коктейли";
 
 export interface MenuItem {
@@ -106,6 +58,7 @@ export interface MenuItem {
   price: string;
   category: MenuCategory;
   tag?: "Сигниче" | "Выбор шефа" | "Веган" | "Хит";
+  image?: string;
 }
 
 export const menuCategories: MenuCategory[] = [
@@ -116,207 +69,12 @@ export const menuCategories: MenuCategory[] = [
   "Коктейли",
 ];
 
-export const menu: MenuItem[] = [
-  {
-    name: "Тартар из тунца, понзу, авокадо",
-    description: "Жёлтопёрый тунец, соус понзу, авокадо-крем, кунжут и хрустящий рис.",
-    price: "1 290 ₽",
-    category: "Закуски",
-    tag: "Сигниче",
-  },
-  {
-    name: "Гребешок, цветная капуста, трюфель",
-    description: "Обожжённый гребешок, крем из цветной капусты, чёрный трюфель.",
-    price: "1 450 ₽",
-    category: "Закуски",
-  },
-  {
-    name: "Севиче из сибаса, лайм, чили",
-    description: "Тонкий сибас, лече-де-тигре, красный лук, кинза и юзу.",
-    price: "1 190 ₽",
-    category: "Закуски",
-    tag: "Хит",
-  },
-  {
-    name: "Тыква на углях, тахини, гранат",
-    description: "Печёная тыква, тахини, зёрна граната, семечки и мёд.",
-    price: "890 ₽",
-    category: "Закуски",
-    tag: "Веган",
-  },
-  {
-    name: "Ризотто с белыми грибами",
-    description: "Карнароли, белые грибы, пармезан 24 месяца, трюфельное масло.",
-    price: "1 390 ₽",
-    category: "Основное",
-    tag: "Выбор шефа",
-  },
-  {
-    name: "Чёрная треска мисо",
-    description: "Треска в маринаде мисо, спаржа, соус нанбан.",
-    price: "2 190 ₽",
-    category: "Основное",
-    tag: "Сигниче",
-  },
-  {
-    name: "Пельмени с крабом, биск",
-    description: "Ручная лепка, камчатский краб, соус биск, икра.",
-    price: "1 690 ₽",
-    category: "Основное",
-  },
-  {
-    name: "Рибай на углях, 320 г",
-    description: "Мраморная говядина, соус чимичурри, обугленный лук.",
-    price: "3 200 ₽",
-    category: "Из огня",
-    tag: "Выбор шефа",
-  },
-  {
-    name: "Каре ягнёнка, гриль",
-    description: "Ягнёнок на открытом огне, баклажан, мятный йогурт.",
-    price: "2 490 ₽",
-    category: "Из огня",
-  },
-  {
-    name: "Осьминог на гриле, романеско",
-    description: "Медленно томлёный осьминог, романеско, соус ромеско.",
-    price: "1 950 ₽",
-    category: "Из огня",
-    tag: "Хит",
-  },
-  {
-    name: "Павлова, маракуйя, базилик",
-    description: "Хрустящая меренга, крем, маракуйя и свежий базилик.",
-    price: "720 ₽",
-    category: "Десерты",
-  },
-  {
-    name: "Шоколад 70%, солёная карамель",
-    description: "Тёплый фондан, солёная карамель, мороженое из пекана.",
-    price: "780 ₽",
-    category: "Десерты",
-    tag: "Хит",
-  },
-  {
-    name: "Green Soul",
-    description: "Джин, базилик, огурец, юзу, тоник — фирменный «оазис» в бокале.",
-    price: "890 ₽",
-    category: "Коктейли",
-    tag: "Сигниче",
-  },
-  {
-    name: "Smoked Old Fashioned",
-    description: "Бурбон, дым гикори, битеры, апельсиновая цедра.",
-    price: "950 ₽",
-    category: "Коктейли",
-    tag: "Выбор шефа",
-  },
-  {
-    name: "Velvet Night",
-    description: "Мескаль, чёрная смородина, лайм, шелковистая пена.",
-    price: "980 ₽",
-    category: "Коктейли",
-  },
-];
+export const menu = content.menu as MenuItem[];
 
-/* — Афиша / события — */
-export const events = [
-  {
-    date: "25.07",
-    weekday: "Пятница",
-    title: "Grand Opening",
-    subtitle: "Иммерсивное шоу «Лесные феи»",
-    time: "21:00",
-    lineup: ["BLAYZE · живая музыка", "ALLSTAR · DJ-сет"],
-    poster: "/images/poster-1.jpg",
-    featured: true,
-  },
-  {
-    date: "24.07",
-    weekday: "Четверг",
-    title: "Grand Opening",
-    subtitle: "Иммерсивное шоу «Лесные фурии»",
-    time: "21:00",
-    lineup: ["BLAYZE · живая музыка", "CRAFT · DJ-сет"],
-    poster: "/images/poster-2.jpg",
-    featured: false,
-  },
-  {
-    date: "26.07",
-    weekday: "Суббота",
-    title: "Night Session",
-    subtitle: "Живая музыка и резиденты SOUL",
-    time: "22:00",
-    lineup: ["BLAYZE · live", "ALLSTAR · DJ-сет"],
-    poster: "/images/poster-3.jpg",
-    featured: false,
-  },
-] as const;
+export const events = content.events;
 
-/* — Отзывы — */
-export const testimonials = [
-  {
-    quote:
-      "Место, где город остаётся за пределами стен. Свет, зелень и музыка складываются в вечер, который не хочется заканчивать.",
-    author: "Елена В.",
-    role: "Постоянный гость",
-  },
-  {
-    quote:
-      "Лучший вечер за долгое время. Кухня — на уровне ресторанов, где я бывал в Лондоне и Дубае. И это в Москве.",
-    author: "Артём К.",
-    role: "Гость",
-  },
-  {
-    quote:
-      "Иммерсивное шоу и живой вокал — это отдельное искусство. SOUL умеет создавать эмоцию, а не просто подавать блюда.",
-    author: "Марина Д.",
-    role: "Гость",
-  },
-  {
-    quote:
-      "Коктейли продуманы до последней капли, сервис безупречен. Атмосфера, за которой хочется возвращаться снова.",
-    author: "Дмитрий С.",
-    role: "Гость",
-  },
-] as const;
+export const testimonials = content.testimonials;
 
-/* — FAQ — */
-export const faq = [
-  {
-    q: "Как забронировать столик?",
-    a: "Заполните форму бронирования на сайте или позвоните по телефону +7 995 764 8888. Менеджер подтвердит бронь и подберёт зону под ваш вечер.",
-  },
-  {
-    q: "Есть ли дресс-код?",
-    a: "Мы придерживаемся стиля smart casual. Вечером атмосфера более торжественная — будем рады вашему образу под настроение SOUL.",
-  },
-  {
-    q: "Можно ли организовать приватное мероприятие?",
-    a: "Да. У нас есть VIP-зоны и возможность полного выкупа пространства под день рождения, корпоратив или закрытый ужин. Обсудим детали по телефону.",
-  },
-  {
-    q: "Учитываете ли вы особенности питания?",
-    a: "Конечно. В меню есть вегетарианские и веганские позиции, а кухня готова адаптировать блюда под аллергии и предпочтения — предупредите нас заранее.",
-  },
-  {
-    q: "Когда проходят живая музыка и шоу?",
-    a: "Живые выступления, DJ-сеты и иммерсивные шоу проходят по пятницам и субботам. Актуальную программу смотрите в разделе «Афиша».",
-  },
-  {
-    q: "Есть ли парковка?",
-    a: "Рядом с рестораном доступна парковка. По вопросам VIP-подъезда и трансфера уточните у менеджера при бронировании.",
-  },
-] as const;
+export const faq = content.faq;
 
-/* — Галерея — */
-export const gallery = [
-  { src: "/images/hero.jpg", alt: "Оазис SOUL — свод зелени и хрусталя", span: "square" },
-  { src: "/images/interior-hall.jpg", alt: "Зал с хрустальными люстрами", span: "square" },
-  { src: "/images/atmosphere.jpg", alt: "Лучи света среди джунглей", span: "square" },
-  { src: "/images/bar.jpg", alt: "Бар SOUL — коктейли и атмосфера", span: "square" },
-  { src: "/images/oasis.jpg", alt: "Живая зелень и свет", span: "square" },
-  { src: "/images/lounge.jpg", alt: "Вечерний lounge", span: "square" },
-  { src: "/images/details.jpg", alt: "Детали интерьера", span: "square" },
-  { src: "/images/gastronomy.jpg", alt: "Барная стойка", span: "square" },
-] as const;
+export const gallery = content.gallery;
