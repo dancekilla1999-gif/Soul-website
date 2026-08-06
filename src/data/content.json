@@ -210,42 +210,72 @@
   "gallery": [
     {
       "src": "/images/hero.jpg",
-      "alt": "Оазис SOUL — свод зелени и хрусталя",
-      "span": "square"
+      "alt": "Зал SOUL — хрустальные люстры и бархатные кресла",
+      "span": "wide"
     },
     {
       "src": "/images/interior-hall.jpg",
-      "alt": "Зал с хрустальными люстрами",
+      "alt": "Интерьер с подвесными садами и люстрами",
       "span": "square"
     },
     {
       "src": "/images/atmosphere.jpg",
-      "alt": "Лучи света среди джунглей",
+      "alt": "Зелёные лучи света среди папоротников",
       "span": "square"
     },
     {
       "src": "/images/bar.jpg",
-      "alt": "Бар SOUL — коктейли и атмосфера",
-      "span": "square"
+      "alt": "Бар SOUL — бармены под кристальной люстрой",
+      "span": "wide"
     },
     {
       "src": "/images/oasis.jpg",
-      "alt": "Зелень и свет",
+      "alt": "Своды зелени и хрусталя",
       "span": "square"
     },
     {
       "src": "/images/lounge.jpg",
-      "alt": "Вечерний lounge",
+      "alt": "Синие диваны и красные кресла — lounge-зона",
       "span": "square"
     },
     {
       "src": "/images/details.jpg",
-      "alt": "Детали интерьера",
+      "alt": "Уютные зоны отдыха с бархатной мебелью",
       "span": "square"
     },
     {
       "src": "/images/gastronomy.jpg",
-      "alt": "Барная стойка",
+      "alt": "Люстра из хрусталя и зелени сверху",
+      "span": "square"
+    },
+    {
+      "src": "/images/chandelier-detail.jpg",
+      "alt": "Деталь люстры с подсветкой",
+      "span": "square"
+    },
+    {
+      "src": "/images/dj-peacock.jpg",
+      "alt": "DJ-зона и павлиний экран",
+      "span": "square"
+    },
+    {
+      "src": "/images/hookah-lounge.jpg",
+      "alt": "Lounge с кальянами и атмосферой",
+      "span": "square"
+    },
+    {
+      "src": "/images/branding-stairs.jpg",
+      "alt": "Лестница и брендинг пространства",
+      "span": "square"
+    },
+    {
+      "src": "/images/atmosphere-bw.jpg",
+      "alt": "Чёрно-белая атмосфера зала",
+      "span": "square"
+    },
+    {
+      "src": "/images/logo-wall.jpg",
+      "alt": "Стена с логотипом и зеленью",
       "span": "square"
     }
   ],
