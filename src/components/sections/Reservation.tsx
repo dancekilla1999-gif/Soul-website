@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, type FormEvent } from "react";
+import { useState, type FormEvent, type ChangeEvent } from "react";
 import { toast } from "sonner";
 import { Loader2, Phone } from "lucide-react";
 import { site } from "@/lib/data";
@@ -34,8 +34,41 @@ const todayISO = () => new Date().toISOString().split("T")[0];
 const fieldClass =
   "mt-2 w-full appearance-none border-0 border-b border-white/15 bg-transparent px-1 py-2 text-[15px] text-bone transition-colors focus:border-gold focus:outline-none [color-scheme:dark]";
 
+/** Российский телефон: 8… → +7…, 7… → +7…, маска +7 (xxx) xxx-xx-xx */
+function formatPhoneRu(raw: string): string {
+  let digits = raw.replace(/\D/g, "");
+  if (!digits) return raw.startsWith("+") && raw.length === 1 ? "+" : "";
+
+  // 8xxxxxxxxxx → 7xxxxxxxxxx
+  if (digits[0] === "8") digits = "7" + digits.slice(1);
+  // если начали с 9... (без кода) — считаем РФ
+  if (digits[0] === "9") digits = "7" + digits;
+  // любая другая первая цифра кроме 7 — если одна 7 уже ок
+  if (digits[0] !== "7") {
+    // оставляем как набрали, но с + если хотели международный — для РФ форсируем 7
+    digits = "7" + digits.replace(/^7/, "");
+  }
+
+  digits = digits.slice(0, 11); // 7 + 10 цифр
+
+  let out = "+7";
+  const rest = digits.slice(1);
+  if (rest.length > 0) out += " (" + rest.slice(0, 3);
+  if (rest.length >= 3) out += ")";
+  if (rest.length > 3) out += " " + rest.slice(3, 6);
+  if (rest.length > 6) out += "-" + rest.slice(6, 8);
+  if (rest.length > 8) out += "-" + rest.slice(8, 10);
+  return out;
+}
+
 export function Reservation() {
   const [loading, setLoading] = useState(false);
+  const [phone, setPhone] = useState("");
+
+  function onPhoneChange(e: ChangeEvent<HTMLInputElement>) {
+    setPhone(formatPhoneRu(e.target.value));
+  }
+
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -73,6 +106,7 @@ export function Reservation() {
         duration: 7000,
       });
       form.reset();
+      setPhone("");
     } catch {
       toast.error("Ошибка сети", {
         description: `Позвоните нам: ${site.phone}`,
@@ -163,7 +197,10 @@ export function Reservation() {
                     type="tel"
                     required
                     autoComplete="tel"
+                    inputMode="tel"
                     placeholder="+7 (___) ___-__-__"
+                    value={phone}
+                    onChange={onPhoneChange}
                   />
                 </div>
 
