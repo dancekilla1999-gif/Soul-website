@@ -17,6 +17,7 @@ import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/shared/ScrollProgress";
 import { FloatingReserve } from "@/components/shared/FloatingReserve";
 import { PageTransition, TransitionCurtain } from "@/components/providers/PageTransition";
+import { YandexMetrika } from "@/components/providers/YandexMetrika";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin", "cyrillic"],
@@ -134,6 +135,7 @@ export default function RootLayout({
         <FloatingReserve />
         <Cursor />
         <Toaster />
+        <YandexMetrika />
       </body>
     </html>
   );

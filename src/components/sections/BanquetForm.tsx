@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Magnetic } from "@/components/shared/MagneticButton";
+import { reachGoal } from "@/components/providers/YandexMetrika";
 
 const guestOptions = [
   "10–15",
@@ -95,6 +96,7 @@ export function BanquetForm() {
         toast.error(data.error || "Не удалось отправить заявку");
         return;
       }
+      reachGoal("banquet");
       toast.success(data.message || "Заявка на банкет принята");
       (e.target as HTMLFormElement).reset();
       setPhone("");

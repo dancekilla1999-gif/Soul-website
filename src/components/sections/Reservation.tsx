@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Magnetic } from "@/components/shared/MagneticButton";
+import { reachGoal } from "@/components/providers/YandexMetrika";
 
 const guestOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"];
 
@@ -101,6 +102,7 @@ export function Reservation() {
         return;
       }
 
+      reachGoal("reservation");
       toast.success("Заявка принята", {
         description: `${payload.name}, ждём вас ${payload.date} в ${payload.time}. Менеджер перезвонит для подтверждения.`,
         duration: 7000,
