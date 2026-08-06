@@ -168,40 +168,39 @@
   ],
   "events": [
     {
-      "date": "25.07",
-      "weekday": "Пятница",
-      "title": "Grand Opening",
-      "subtitle": "Иммерсивное шоу «Лесные феи»",
-      "time": "21:00",
+      "date": "Скоро",
+      "weekday": "",
+      "title": "Coming Soon",
+      "subtitle": "Живое пространство · Живые эмоции",
+      "time": "",
       "lineup": [
-        "BLAYZE · живая музыка",
-        "ALLSTAR · DJ-сет"
+        "SOUL · Grand Opening"
       ],
       "poster": "/images/poster-1.jpg",
       "featured": true
     },
     {
-      "date": "24.07",
-      "weekday": "Четверг",
-      "title": "Grand Opening",
-      "subtitle": "Иммерсивное шоу «Лесные фурии»",
-      "time": "21:00",
+      "date": "Скоро",
+      "weekday": "",
+      "title": "Opening Night",
+      "subtitle": "Оазис природы в сердце Москвы",
+      "time": "",
       "lineup": [
-        "BLAYZE · живая музыка",
-        "CRAFT · DJ-сет"
+        "Иммерсивное шоу",
+        "Живая музыка"
       ],
       "poster": "/images/poster-2.jpg",
       "featured": false
     },
     {
-      "date": "26.07",
-      "weekday": "Суббота",
-      "title": "Night Session",
-      "subtitle": "Живая музыка и резиденты SOUL",
-      "time": "22:00",
+      "date": "Скоро",
+      "weekday": "",
+      "title": "SOUL Experience",
+      "subtitle": "Хрусталь, зелень и свет",
+      "time": "",
       "lineup": [
-        "BLAYZE · live",
-        "ALLSTAR · DJ-сет"
+        "DJ-сеты",
+        "Авторская кухня"
       ],
       "poster": "/images/poster-3.jpg",
       "featured": false
