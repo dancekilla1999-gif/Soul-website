@@ -1,12 +1,13 @@
 import { NextResponse } from "next/server";
+import {
+  formatReservationMessage,
+  sendTelegramMessage,
+  telegramConfigured,
+} from "@/lib/telegram";
 
 /**
- * Обработчик формы бронирования.
- *
- * Сейчас заявка валидируется и логируется на сервере — этого достаточно
- * для запуска сайта. Чтобы получать письма, задайте переменные окружения
- * RESEND_API_KEY, RESERVATION_TO_EMAIL, RESERVATION_FROM_EMAIL и раскомментируйте
- * блок с Resend ниже (пакет resend уже можно доустановить: npm i resend).
+ * Форма бронирования → валидация → уведомление в Telegram-группу.
+ * Env: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
  */
 
 export const runtime = "nodejs";
@@ -45,18 +46,43 @@ export async function POST(request: Request) {
 
   const errors: string[] = [];
   if (name.length < 2) errors.push("Укажите имя.");
-  if (phone.replace(/\D/g, "").length < 10) errors.push("Укажите корректный телефон.");
+  if (phone.replace(/\D/g, "").length < 10)
+    errors.push("Укажите корректный телефон.");
   if (email && !isEmail(email)) errors.push("Укажите корректный email.");
   if (!date) errors.push("Выберите дату.");
   if (!time) errors.push("Выберите время.");
 
   if (errors.length) {
-    return NextResponse.json({ ok: false, error: errors.join(" ") }, { status: 422 });
+    return NextResponse.json(
+      { ok: false, error: errors.join(" ") },
+      { status: 422 }
+    );
   }
 
-  const reservation = { name, phone, email, guests, date, time, message, at: new Date().toISOString() };
+  const reservation = {
+    name,
+    phone,
+    email,
+    guests,
+    date,
+    time,
+    message,
+    at: new Date().toISOString(),
+  };
 
   console.info("[SOUL] Новая заявка на бронирование:", reservation);
+
+  // Telegram group notification
+  if (telegramConfigured()) {
+    const text = formatReservationMessage(reservation);
+    const tg = await sendTelegramMessage(text);
+    if (!tg.ok) {
+      console.error("[SOUL] Telegram error:", tg.error);
+      // заявку всё равно считаем принятой — не ломаем UX гостя
+    }
+  } else {
+    console.warn("[SOUL] Telegram не настроен (TELEGRAM_BOT_TOKEN / CHAT_ID)");
+  }
 
   return NextResponse.json({
     ok: true,
