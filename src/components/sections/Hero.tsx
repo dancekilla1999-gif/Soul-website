@@ -67,7 +67,7 @@ export function Hero() {
           />
           <video
             ref={videoRef}
-            className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ${
+            className={`absolute left-1/2 top-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 scale-110 object-cover object-center transition-opacity duration-1000 ${
               videoReady ? "opacity-100" : "opacity-0"
             }`}
             src="/videos/hero-ambient.mp4"
