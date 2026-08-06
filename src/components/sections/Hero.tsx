@@ -5,8 +5,25 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { site } from "@/lib/data";
-import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/shared/MagneticButton";
+
+const heroButtons = [
+  {
+    label: "Забронировать",
+    href: "/contacts#reserve",
+    primary: true,
+  },
+  {
+    label: "Карта лояльности",
+    href: "/loyalty",
+    primary: false,
+  },
+  {
+    label: "Банкеты",
+    href: "/banquets",
+    primary: false,
+  },
+] as const;
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -24,9 +41,7 @@ export function Hero() {
     const v = videoRef.current;
     if (!v) return;
     const tryPlay = () => {
-      v.play().catch(() => {
-        // autoplay blocked — stay on poster
-      });
+      v.play().catch(() => {});
     };
     if (v.readyState >= 2) tryPlay();
     else v.addEventListener("loadeddata", tryPlay, { once: true });
@@ -40,7 +55,6 @@ export function Hero() {
     >
       <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
         <div className="absolute inset-0">
-          {/* Poster / fallback photo */}
           <Image
             src="/images/hero.jpg"
             alt="Интерьер ресторана SOUL — оазис природы в сердце Москвы"
@@ -51,7 +65,6 @@ export function Hero() {
               videoReady ? "opacity-0" : "opacity-100"
             }`}
           />
-          {/* Ambient video loop */}
           <video
             ref={videoRef}
             className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ${
@@ -105,22 +118,27 @@ export function Hero() {
           {site.tagline}
         </motion.p>
 
+        {/* SD-style stacked CTA buttons */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-9 flex w-full max-w-sm flex-col items-stretch gap-3 sm:mt-11 sm:max-w-none sm:flex-row sm:items-center sm:justify-center sm:gap-4"
+          className="mt-9 flex w-full max-w-[320px] flex-col gap-3 sm:mt-11 sm:max-w-[340px]"
         >
-          <Magnetic>
-            <Button asChild size="lg" variant="gold" className="w-full sm:w-auto">
-              <Link href="/contacts#reserve">Забронировать столик</Link>
-            </Button>
-          </Magnetic>
-          <Magnetic>
-            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
-              <Link href="/menu">Смотреть меню</Link>
-            </Button>
-          </Magnetic>
+          {heroButtons.map((btn) => (
+            <Magnetic key={btn.href}>
+              <Link
+                href={btn.href}
+                className={
+                  btn.primary
+                    ? "flex h-12 w-full items-center justify-center rounded-full border border-gold/80 bg-gold/95 text-[12px] font-medium uppercase tracking-[0.18em] text-noir shadow-[0_12px_32px_-12px_rgba(176,139,90,0.7)] transition-all duration-300 hover:bg-gold-soft hover:shadow-[0_16px_40px_-10px_rgba(176,139,90,0.9)] active:scale-[0.98] sm:h-[3.15rem] sm:text-[13px]"
+                    : "flex h-12 w-full items-center justify-center rounded-full border border-white/25 bg-noir/40 text-[12px] font-medium uppercase tracking-[0.18em] text-bone backdrop-blur-sm transition-all duration-300 hover:border-gold/60 hover:bg-gold/10 hover:text-gold active:scale-[0.98] sm:h-[3.15rem] sm:text-[13px]"
+                }
+              >
+                {btn.label}
+              </Link>
+            </Magnetic>
+          ))}
         </motion.div>
       </motion.div>
 

@@ -12,6 +12,7 @@ export const nav = [
   { label: "Меню", href: "/menu" },
   { label: "Афиша", href: "/events" },
   { label: "Галерея", href: "/gallery" },
+  { label: "Банкеты", href: "/banquets" },
   { label: "Контакты", href: "/contacts" },
 ] as const;
 

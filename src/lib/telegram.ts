@@ -66,6 +66,38 @@ export function formatReservationMessage(r: {
   return lines.join("\n");
 }
 
+/** Отдельное уведомление для банкетов — легко отличить в чате */
+export function formatBanquetMessage(r: {
+  name: string;
+  phone: string;
+  email?: string;
+  guests?: string;
+  date: string;
+  time?: string;
+  eventType?: string;
+  budget?: string;
+  message?: string;
+  at?: string;
+}): string {
+  const lines = [
+    `🎉 <b>ЗАЯВКА НА БАНКЕТ — SOUL</b>`,
+    `━━━━━━━━━━━━━━━━`,
+    ``,
+    `👤 <b>${escapeHtml(r.name)}</b>`,
+    `📞 <code>${escapeHtml(r.phone)}</code>`,
+  ];
+  if (r.email) lines.push(`✉️ ${escapeHtml(r.email)}`);
+  if (r.guests) lines.push(`👥 Гостей: <b>${escapeHtml(String(r.guests))}</b>`);
+  if (r.eventType) lines.push(`🏷 Формат: <b>${escapeHtml(r.eventType)}</b>`);
+  lines.push(`📅 Дата: <b>${escapeHtml(r.date)}</b>`);
+  if (r.time) lines.push(`🕐 Время: ${escapeHtml(r.time)}`);
+  if (r.budget) lines.push(`💰 Бюджет: ${escapeHtml(r.budget)}`);
+  if (r.message) lines.push(``, `💬 ${escapeHtml(r.message)}`);
+  lines.push(``, `🌐 soul.msk.ru/banquets`);
+  if (r.at) lines.push(`⏱ ${escapeHtml(r.at)}`);
+  return lines.join("\n");
+}
+
 function escapeHtml(s: string): string {
   return s
     .replace(/&/g, "&amp;")
