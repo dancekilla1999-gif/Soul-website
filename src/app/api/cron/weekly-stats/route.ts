@@ -55,16 +55,43 @@ async function vercelDeploymentsSummary(): Promise<string> {
   }
 }
 
-async function siteHealth(): Promise<string> {
+async function probe(url: string): Promise<{ ok: boolean; ms: number; status?: number; err?: string }> {
+  const t0 = Date.now();
   try {
-    const base = process.env.NEXT_PUBLIC_SITE_URL || "https://soul.msk.ru";
-    const t0 = Date.now();
-    const res = await fetch(base, { method: "GET", next: { revalidate: 0 } });
-    const ms = Date.now() - t0;
-    return `• Сайт: <b>${res.ok ? "OK" : "HTTP " + res.status}</b> · ${ms} ms\n• URL: ${base}`;
+    const res = await fetch(url, {
+      method: "GET",
+      redirect: "follow",
+      cache: "no-store",
+      headers: { "User-Agent": "SOUL-HealthCheck/1.0" },
+      signal: AbortSignal.timeout(12000),
+    });
+    return { ok: res.ok, ms: Date.now() - t0, status: res.status };
   } catch (e) {
-    return `• Сайт: недоступен (${String(e).slice(0, 60)})`;
+    return { ok: false, ms: Date.now() - t0, err: String(e).slice(0, 80) };
   }
+}
+
+async function siteHealth(): Promise<string> {
+  const primary = process.env.NEXT_PUBLIC_SITE_URL || "https://soul.msk.ru";
+  const fallbacks = [
+    primary,
+    "https://soul.msk.ru",
+    "https://www.soul.msk.ru",
+  ].filter((v, i, a) => a.indexOf(v) === i);
+
+  const results: string[] = [];
+  let anyOk = false;
+  for (const url of fallbacks) {
+    const r = await probe(url);
+    if (r.ok) {
+      anyOk = true;
+      results.push(`• Сайт: <b>OK</b> · ${r.ms} ms\n• URL: ${url}`);
+      break;
+    }
+    results.push(`• ${url}: ${r.status ? "HTTP " + r.status : r.err || "fail"} (${r.ms} ms)`);
+  }
+  if (anyOk) return results[results.length - 1];
+  return `• Сайт: проверка не прошла\n` + results.join("\n");
 }
 
 export async function GET(request: Request) {
