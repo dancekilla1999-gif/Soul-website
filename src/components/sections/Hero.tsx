@@ -3,13 +3,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { site } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/shared/MagneticButton";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoReady, setVideoReady] = useState(false);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -18,6 +20,18 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    const tryPlay = () => {
+      v.play().catch(() => {
+        // autoplay blocked — stay on poster
+      });
+    };
+    if (v.readyState >= 2) tryPlay();
+    else v.addEventListener("loadeddata", tryPlay, { once: true });
+  }, []);
+
   return (
     <section
       ref={ref}
@@ -25,14 +39,34 @@ export function Hero() {
       className="relative flex h-[100svh] min-h-[580px] items-center justify-center overflow-hidden"
     >
       <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
-        <div className="absolute inset-0 animate-ken-burns">
+        <div className="absolute inset-0">
+          {/* Poster / fallback photo */}
           <Image
             src="/images/hero.jpg"
             alt="Интерьер ресторана SOUL — оазис природы в сердце Москвы"
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[center_20%]"
+            className={`object-cover object-[center_20%] transition-opacity duration-1000 ${
+              videoReady ? "opacity-0" : "opacity-100"
+            }`}
+          />
+          {/* Ambient video loop */}
+          <video
+            ref={videoRef}
+            className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ${
+              videoReady ? "opacity-100" : "opacity-0"
+            }`}
+            src="/videos/hero-ambient.mp4"
+            poster="/images/hero.jpg"
+            muted
+            loop
+            playsInline
+            autoPlay
+            preload="auto"
+            onCanPlay={() => setVideoReady(true)}
+            onPlaying={() => setVideoReady(true)}
+            aria-hidden
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-noir/75 via-noir/45 to-noir" />
