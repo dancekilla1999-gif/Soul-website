@@ -102,7 +102,7 @@ export function BanquetForm() {
       setPhone("");
     } catch {
       toast.error("Ошибка сети. Попробуйте ещё раз или позвоните нам.", {
-        description: `Позвоните: ${site.phone}`,
+        description: `Позвоните: ${site.banquetPhone || site.phone}`,
       });
     } finally {
       setLoading(false);
