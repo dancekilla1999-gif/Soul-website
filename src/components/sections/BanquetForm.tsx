@@ -102,7 +102,7 @@ export function BanquetForm() {
       setPhone("");
     } catch {
       toast.error("Ошибка сети. Попробуйте ещё раз или позвоните нам.", {
-        description: `Позвоните: ${site.banquetPhone || site.phone}`,
+        description: `Позвоните: +7 917 542-10-00`,
       });
     } finally {
       setLoading(false);
@@ -131,11 +131,11 @@ export function BanquetForm() {
                   Или сразу позвоните
                 </p>
                 <a
-                  href={`tel:${site.phoneHref}`}
+                  href="tel:+79175421000"
                   className="inline-flex items-center gap-2 text-lg text-bone transition-colors hover:text-gold"
                 >
                   <Phone className="h-4 w-4 text-gold" />
-                  {site.phone}
+                  +7 917 542-10-00
                 </a>
               </div>
               <ul className="space-y-2 border-t border-white/10 pt-6 text-sm text-bone/60">
