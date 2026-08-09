@@ -14,8 +14,8 @@ export default function EventsPage() {
     <>
       <PageHero
         eyebrow="Афиша"
-        title="Вечера, которые невозможно повторить"
-        subtitle="Живая музыка, DJ-сеты и иммерсивные перформансы — каждую пятницу и субботу."
+        title="Афиша"
+        subtitle="Пятница и суббота — музыка и DJ."
       />
       <Events />
     </>

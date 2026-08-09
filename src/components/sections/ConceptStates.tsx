@@ -14,8 +14,8 @@ export function ConceptStates() {
       <div className="container-wide">
         <SectionHeading
           eyebrow="Концепция"
-          title="Один вечер — несколько состояний"
-          intro="В SOUL вечер не стоит на месте. Он перетекает из одного настроения в другое — и вы выбираете свой ритм."
+          title="Несколько настроений"
+          intro="Вы выбираете ритм вечера."
           align="center"
           className="mb-12 sm:mb-16 lg:mb-20"
         />

@@ -47,15 +47,13 @@ export function Atmosphere() {
 
           <TextReveal
             as="h2"
-            text="Атмосфера, созданная для чувств"
+            text="Свет, зелень, звук"
             className="mt-6 text-balance font-serif text-4xl leading-[1.05] text-bone sm:text-5xl lg:text-[3.8rem]"
           />
 
           <Reveal delay={0.2}>
             <p className="mt-8 text-pretty text-lg leading-relaxed text-bone/80">
-              Приглушённый свет, зелень над головой и хрусталь, который
-              ловит каждый отблеск. Здесь звук, вкус и свет работают вместе —
-              чтобы вечер запомнился не деталями, а ощущением.
+              Приглушённый свет, зелень и хрусталь. Вкус и музыка — без лишнего шума.
             </p>
           </Reveal>
 

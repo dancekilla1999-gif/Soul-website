@@ -16,8 +16,8 @@ export default function ContactsPage() {
     <>
       <PageHero
         eyebrow="Контакты"
-        title="Забронируйте свой вечер"
-        subtitle="Оставьте заявку — менеджер свяжется с вами, подтвердит бронь и подберёт зону под ваше настроение."
+        title="Контакты и бронь"
+        subtitle="Телефон, адрес и форма бронирования."
       />
       <Reservation />
       <Contacts />

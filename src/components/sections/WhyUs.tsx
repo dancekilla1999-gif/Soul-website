@@ -29,8 +29,8 @@ export function WhyUs() {
       <div className="container-wide">
         <SectionHeading
           eyebrow="Почему SOUL"
-          title="Причины возвращаться снова"
-          intro="Мы собрали вечер из деталей, каждая из которых работает на одно — ваше впечатление."
+          title="Почему сюда"
+          intro="Шоу, музыка, кухня, бар и сервис — коротко и по делу."
           align="center"
           className="mb-16 lg:mb-20"
         />

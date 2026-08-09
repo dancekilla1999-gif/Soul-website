@@ -5,11 +5,10 @@ import { Atmosphere } from "@/components/sections/Atmosphere";
 import { WhyUs } from "@/components/sections/WhyUs";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Events } from "@/components/sections/Events";
-import { Reservation } from "@/components/sections/Reservation";
 
 /**
- * Главная — витрина: герой, концепция, атмосфера, афиша, доверие, бронь.
- * Полные разделы вынесены на отдельные страницы.
+ * Главная — витрина: герой, концепция, атмосфера, афиша.
+ * Бронь и контакты — на /contacts.
  */
 export default function HomePage() {
   return (
@@ -21,7 +20,6 @@ export default function HomePage() {
       <Events />
       <WhyUs />
       <Testimonials />
-      <Reservation />
     </>
   );
 }

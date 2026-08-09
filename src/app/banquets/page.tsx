@@ -14,8 +14,8 @@ export default function BanquetsPage() {
     <>
       <PageHero
         eyebrow="Банкеты"
-        title="Ваш праздник в SOUL"
-        subtitle="Дни рождения, корпоративы, свадьбы и закрытые вечеринки. Мы берём на себя пространство, меню и атмосферу."
+        title="Банкеты"
+        subtitle="Дни рождения, корпоративы и закрытые вечера."
       />
       <BanquetForm />
     </>

@@ -16,8 +16,8 @@ export function Events() {
       <div className="container-wide">
         <SectionHeading
           eyebrow="Афиша"
-          title="Вечера, которые невозможно повторить"
-          intro="Живая музыка, DJ-сеты и иммерсивные перформансы — каждую пятницу и субботу."
+          title="Афиша"
+          intro="Пятница и суббота — живая музыка и DJ."
           align="center"
           className="mb-16 lg:mb-20"
         />
