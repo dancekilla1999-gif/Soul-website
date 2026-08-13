@@ -2,7 +2,16 @@
 
 import Script from "next/script";
 
-/** Счётчик SOUL — можно переопределить через NEXT_PUBLIC_YANDEX_METRIKA_ID */
+/**
+ * Счётчик SOUL (soul.msk.ru) — можно переопределить через env
+ * NEXT_PUBLIC_YANDEX_METRIKA_ID.
+ *
+ * ⚠️ Этот ID принадлежит именно SOUL. Если копируете этот файл в другой
+ * проект (как уже случайно произошло с smoke-dog — весь трафик sd.msk.ru
+ * улетал в этот счётчик, пока не поставили свой NEXT_PUBLIC_YANDEX_METRIKA_ID) —
+ * ОБЯЗАТЕЛЬНО замените DEFAULT_COUNTER_ID на счётчик нового сайта или уберите
+ * fallback вовсе.
+ */
 const DEFAULT_COUNTER_ID = "111369375";
 
 function getCounterId(): string {
