@@ -170,15 +170,17 @@
   ],
   "events": [
     {
-      "date": "Скоро",
-      "weekday": "",
-      "title": "Coming Soon",
-      "subtitle": "Живое пространство · Живые эмоции",
-      "time": "",
+      "date": "15.08",
+      "weekday": "Суббота",
+      "title": "Saturday",
+      "subtitle": "DJ Set: Greylee · Percussion show",
+      "time": "21:00",
       "lineup": [
-        "SOUL · Grand Opening"
+        "DJ Set — Greylee",
+        "Percussion show"
       ],
-      "poster": "/images/poster-1.jpg",
+      "poster": "/images/event-saturday-poster.jpg",
+      "video": "/videos/event-saturday.mp4",
       "featured": true
     },
     {

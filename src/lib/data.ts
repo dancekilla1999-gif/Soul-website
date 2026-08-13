@@ -72,7 +72,20 @@ export const menuCategories: MenuCategory[] = [
 
 export const menu = content.menu as MenuItem[];
 
-export const events = content.events;
+export interface EventItem {
+  date: string;
+  weekday: string;
+  title: string;
+  subtitle: string;
+  time: string;
+  lineup: string[];
+  poster: string;
+  /** Необязательное видео вместо статичной картинки (используется poster как fallback/постер видео) */
+  video?: string;
+  featured: boolean;
+}
+
+export const events = content.events as EventItem[];
 
 export const testimonials = content.testimonials;
 

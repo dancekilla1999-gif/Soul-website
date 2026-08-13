@@ -16,6 +16,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/shared/ScrollProgress";
 import { FloatingReserve } from "@/components/shared/FloatingReserve";
+import { PromoPopup } from "@/components/shared/PromoPopup";
 import { PageTransition, TransitionCurtain } from "@/components/providers/PageTransition";
 import { YandexMetrika } from "@/components/providers/YandexMetrika";
 
@@ -136,6 +137,7 @@ export default function RootLayout({
         <Cursor />
         <Toaster />
         <YandexMetrika />
+        <PromoPopup />
       </body>
     </html>
   );

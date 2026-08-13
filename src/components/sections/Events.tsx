@@ -39,13 +39,27 @@ export function Events() {
               )}
             >
               <div className="relative aspect-[3/4] overflow-hidden">
-                <Image
-                  src={event.poster}
-                  alt={`${event.title} — ${event.subtitle}`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover object-[center_20%] transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04]"
-                />
+                {event.video ? (
+                  <video
+                    src={event.video}
+                    poster={event.poster}
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    preload="metadata"
+                    aria-label={`${event.title} — ${event.subtitle}`}
+                    className="absolute inset-0 h-full w-full object-cover object-[center_20%] transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04]"
+                  />
+                ) : (
+                  <Image
+                    src={event.poster}
+                    alt={`${event.title} — ${event.subtitle}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover object-[center_20%] transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04]"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-noir via-noir/35 to-transparent" />
 
                 {event.featured && (
