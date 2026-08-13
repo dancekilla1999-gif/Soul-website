@@ -11,19 +11,15 @@ import { Button } from "@/components/ui/button";
  * Промо-попап ближайшего события с видео-афишей — формат «истории».
  * Видео на весь попап (в нём уже есть всё: дата, состав, контакты),
  * кнопка брони — плавающая поверх видео снизу.
- * Показывается один раз в сутки (localStorage), с небольшой задержкой после
- * загрузки страницы.
+ *
+ * Показывается один раз за заход на сайт: используем sessionStorage
+ * (не localStorage) — флаг живёт, пока открыта вкладка/сессия браузера,
+ * и не мешает при обычной навигации по страницам сайта. Как только
+ * пользователь закрывает вкладку/браузер и заходит на сайт заново —
+ * это уже новый визит, и попап покажется снова.
  */
-const STORAGE_KEY = "soul_promo_popup_dismissed_at";
+const STORAGE_KEY = "soul_promo_popup_seen";
 const SHOW_DELAY_MS = 1400;
-const HIDE_FOR_MS = 24 * 60 * 60 * 1000; // 24 часа
-
-// На preview-деплоях (не production) суточное ограничение отключено, чтобы
-// удобно было тестировать — попап показывается при каждой загрузке.
-// Определяется автоматически по окружению Vercel, ничего вручную убирать
-// перед мержем в main не нужно: на проде (soul.msk.ru) снова заработает
-// обычное правило «раз в 24 часа».
-const IS_PREVIEW = process.env.NEXT_PUBLIC_VERCEL_ENV !== "production";
 
 export function PromoPopup() {
   const [open, setOpen] = useState(false);
@@ -32,13 +28,10 @@ export function PromoPopup() {
 
   useEffect(() => {
     if (!event) return;
-    if (!IS_PREVIEW) {
-      try {
-        const last = localStorage.getItem(STORAGE_KEY);
-        if (last && Date.now() - Number(last) < HIDE_FOR_MS) return;
-      } catch {
-        // localStorage недоступен (приватный режим и т.д.) — просто показываем
-      }
+    try {
+      if (sessionStorage.getItem(STORAGE_KEY)) return;
+    } catch {
+      // sessionStorage недоступен (приватный режим и т.д.) — просто показываем
     }
     const t = setTimeout(() => setOpen(true), SHOW_DELAY_MS);
     return () => clearTimeout(t);
@@ -68,7 +61,7 @@ export function PromoPopup() {
   function close() {
     setOpen(false);
     try {
-      localStorage.setItem(STORAGE_KEY, String(Date.now()));
+      sessionStorage.setItem(STORAGE_KEY, "1");
     } catch {
       // ignore
     }
