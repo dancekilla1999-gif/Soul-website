@@ -83,7 +83,16 @@ export function PromoPopup() {
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative aspect-[9/16] w-full overflow-hidden">
+            <div
+              role="button"
+              aria-label="Закрыть афишу"
+              tabIndex={0}
+              onClick={close}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") close();
+              }}
+              className="group relative aspect-[9/16] w-full cursor-pointer overflow-hidden"
+            >
               <video
                 src={event.video}
                 poster={event.poster}
@@ -99,6 +108,11 @@ export function PromoPopup() {
 
               <span className="absolute left-5 top-5 border border-gold/50 bg-noir/60 px-3 py-1 text-[10px] uppercase tracking-eyebrow text-gold backdrop-blur-sm">
                 Афиша недели
+              </span>
+
+              <span className="absolute inset-x-0 bottom-3 flex items-center justify-center gap-1.5 text-[10px] uppercase tracking-wide2 text-bone/60 opacity-80 transition-opacity group-hover:opacity-100">
+                <X className="h-3 w-3" />
+                Нажмите, чтобы закрыть
               </span>
             </div>
 
