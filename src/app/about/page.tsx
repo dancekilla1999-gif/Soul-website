@@ -8,7 +8,7 @@ import { PageHero } from "@/components/shared/PageHero";
 
 export const metadata: Metadata = {
   title: "О нас",
-  description: `О пространстве ${site.name}: оазис природы в сердце Москвы. Концепция, атмосфера и философия вечера.`,
+  description: `О пространстве ${site.name}: оазис природы в сердце Москвы у метро Тульская. Концепция, атмосфера и философия вечера.`,
   alternates: { canonical: "/about" },
 };
 

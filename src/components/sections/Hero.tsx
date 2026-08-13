@@ -97,7 +97,7 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
           className="eyebrow mb-5 text-gold-soft sm:mb-7"
         >
-          {site.address.city} · Restaurant &amp; Lounge
+          {site.address.city} · м. {site.address.metro} · Restaurant &amp; Lounge
         </motion.p>
 
         <motion.h1
