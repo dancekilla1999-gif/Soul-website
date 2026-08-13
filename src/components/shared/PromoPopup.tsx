@@ -18,6 +18,13 @@ const STORAGE_KEY = "soul_promo_popup_dismissed_at";
 const SHOW_DELAY_MS = 1400;
 const HIDE_FOR_MS = 24 * 60 * 60 * 1000; // 24 часа
 
+// На preview-деплоях (не production) суточное ограничение отключено, чтобы
+// удобно было тестировать — попап показывается при каждой загрузке.
+// Определяется автоматически по окружению Vercel, ничего вручную убирать
+// перед мержем в main не нужно: на проде (soul.msk.ru) снова заработает
+// обычное правило «раз в 24 часа».
+const IS_PREVIEW = process.env.NEXT_PUBLIC_VERCEL_ENV !== "production";
+
 export function PromoPopup() {
   const [open, setOpen] = useState(false);
   const [filled, setFilled] = useState(false);
@@ -25,11 +32,13 @@ export function PromoPopup() {
 
   useEffect(() => {
     if (!event) return;
-    try {
-      const last = localStorage.getItem(STORAGE_KEY);
-      if (last && Date.now() - Number(last) < HIDE_FOR_MS) return;
-    } catch {
-      // localStorage недоступен (приватный режим и т.д.) — просто показываем
+    if (!IS_PREVIEW) {
+      try {
+        const last = localStorage.getItem(STORAGE_KEY);
+        if (last && Date.now() - Number(last) < HIDE_FOR_MS) return;
+      } catch {
+        // localStorage недоступен (приватный режим и т.д.) — просто показываем
+      }
     }
     const t = setTimeout(() => setOpen(true), SHOW_DELAY_MS);
     return () => clearTimeout(t);
