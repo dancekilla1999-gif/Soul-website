@@ -138,7 +138,7 @@ export function Reservation() {
           <div>
             <SectionHeading
               eyebrow="Бронирование"
-              title="Бронирование"
+              title="Ждём вас"
               intro="Оставьте телефон — перезвоним и закрепим стол."
             />
 
