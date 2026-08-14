@@ -16,7 +16,7 @@ export function Events() {
       <div className="container-wide">
         <SectionHeading
           eyebrow="Афиша"
-          title="Афиша"
+          title="Афиша выходных"
           intro="Пятница и суббота — живая музыка и DJ."
           align="center"
           className="mb-16 lg:mb-20"
@@ -29,7 +29,7 @@ export function Events() {
           viewport={{ once: true, margin: "-10% 0px" }}
           className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
         >
-          {events.map((event) => (
+          {events.map((event, i) => (
             <motion.li
               key={event.title}
               variants={staggerItem}
@@ -57,10 +57,15 @@ export function Events() {
                     alt={`${event.title} — ${event.subtitle}`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover object-[center_20%] transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04]"
+                    className={cn(
+                      "object-cover object-[center_20%] transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04]",
+                      // Два "скоро" тизера используют похожую иллюстрацию — сдвигаем
+                      // тон одной в изумрудный, чтобы карточки не читались как одна и та же картинка.
+                      !event.featured && i % 2 !== 0 && "hue-rotate-[130deg] saturate-[0.65]"
+                    )}
                   />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-noir via-noir/35 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-noir from-0% via-noir/85 via-55% to-transparent" />
 
                 {event.featured && (
                   <span className="absolute left-5 top-5 border border-gold/50 bg-noir/60 px-3 py-1 text-[10px] uppercase tracking-eyebrow text-gold backdrop-blur-sm">
