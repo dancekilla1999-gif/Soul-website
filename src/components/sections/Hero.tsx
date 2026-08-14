@@ -56,7 +56,7 @@ export function Hero() {
       <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
         <div className="absolute inset-0">
           <Image
-            src="/images/hero.jpg"
+            src="/images/hero/hero-main.jpg"
             alt="Интерьер ресторана SOUL — оазис природы в сердце Москвы"
             fill
             priority
@@ -71,7 +71,7 @@ export function Hero() {
               videoReady ? "opacity-100" : "opacity-0"
             }`}
             src="/videos/hero-ambient.mp4"
-            poster="/images/hero.jpg"
+            poster="/images/hero/hero-main.jpg"
             muted
             loop
             playsInline

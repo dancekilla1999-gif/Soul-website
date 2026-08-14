@@ -30,7 +30,7 @@ export function About() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
               <motion.div style={{ y }} className="absolute inset-[-6%]">
                 <Image
-                  src="/images/interior-hall.jpg"
+                  src="/images/gallery/interior-hall.jpg"
                   alt="Зал SOUL — хрусталь, зелень и тёплый свет"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"

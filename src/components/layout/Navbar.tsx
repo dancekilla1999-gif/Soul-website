@@ -54,7 +54,7 @@ export function Navbar() {
             onClick={() => setOpen(false)}
           >
             <Image
-              src="/images/logo.png"
+              src="/images/brand/logo.png"
               placeholder="empty"
               alt={site.name}
               width={220}

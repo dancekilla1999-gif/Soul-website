@@ -496,7 +496,7 @@ function EventsSection({
         subtitle: "",
         time: "",
         lineup: [],
-        poster: "/images/poster-1.jpg",
+        poster: "/images/events/poster-1.jpg",
         featured: false,
       },
     ]);
@@ -564,7 +564,7 @@ function GallerySection({
   }
 
   function add() {
-    onChange([...gallery, { src: "/images/", alt: "", span: "square" }]);
+    onChange([...gallery, { src: "/images/gallery/", alt: "", span: "square" }]);
   }
 
   function remove(i: number) {
@@ -581,7 +581,7 @@ function GallerySection({
         </button>
       </div>
       <p className="text-white/40 text-xs">
-        Сначала загрузите файл в папку public/images/ через GitHub, затем укажите путь вида /images/имя.jpg
+        Сначала загрузите файл в папку public/images/gallery/ через GitHub, затем укажите путь вида /images/gallery/имя.jpg
       </p>
       {gallery.map((g, i) => (
         <div key={i} className="bg-white/5 border border-white/10 rounded-lg p-3 space-y-2">

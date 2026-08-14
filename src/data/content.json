@@ -180,7 +180,7 @@
         "DJ Set — Greylee",
         "Percussion show"
       ],
-      "poster": "/images/event-saturday-poster.jpg",
+      "poster": "/images/events/event-saturday-poster.jpg",
       "video": "/videos/event-saturday.mp4",
       "featured": true
     },
@@ -194,7 +194,7 @@
         "Иммерсивное шоу",
         "Живая музыка"
       ],
-      "poster": "/images/poster-2.jpg",
+      "poster": "/images/events/poster-2.jpg",
       "featured": false
     },
     {
@@ -207,78 +207,73 @@
         "DJ-сеты",
         "Авторская кухня"
       ],
-      "poster": "/images/poster-3.jpg",
+      "poster": "/images/events/poster-3.jpg",
       "featured": false
     }
   ],
   "gallery": [
     {
-      "src": "/images/hero.jpg",
+      "src": "/images/hero/hero-main.jpg",
       "alt": "Зал SOUL — хрустальные люстры и бархатные кресла",
       "span": "wide"
     },
     {
-      "src": "/images/interior-hall.jpg",
-      "alt": "Интерьер с подвесными садами и люстрами",
+      "src": "/images/gallery/dj-close.jpg",
+      "alt": "DJ-сет на фоне проекции джунглей",
       "span": "square"
     },
     {
-      "src": "/images/atmosphere.jpg",
-      "alt": "Зелёные лучи света среди папоротников",
-      "span": "square"
-    },
-    {
-      "src": "/images/bar.jpg",
+      "src": "/images/gallery/bar.jpg",
       "alt": "Бар SOUL — бармены под кристальной люстрой",
       "span": "wide"
     },
     {
-      "src": "/images/oasis.jpg",
+      "src": "/images/gallery/oasis.jpg",
       "alt": "Своды зелени и хрусталя",
       "span": "square"
     },
     {
-      "src": "/images/lounge.jpg",
+      "src": "/images/gallery/lounge.jpg",
       "alt": "Синие диваны и красные кресла — lounge-зона",
       "span": "square"
     },
     {
-      "src": "/images/details.jpg",
+      "src": "/images/gallery/details.jpg",
       "alt": "Уютные зоны отдыха с бархатной мебелью",
       "span": "square"
     },
     {
-      "src": "/images/gastronomy.jpg",
+      "src": "/images/gallery/gastronomy.jpg",
       "alt": "Люстра из хрусталя и зелени сверху",
       "span": "square"
     },
     {
-      "src": "/images/chandelier-detail.jpg",
+      "src": "/images/gallery/chandelier-detail.jpg",
       "alt": "Деталь люстры с подсветкой",
       "span": "square"
     },
     {
-      "src": "/images/dj-peacock.jpg",
+      "src": "/images/gallery/dj-peacock.jpg",
       "alt": "DJ-зона и павлиний экран",
       "span": "square"
     },
     {
-      "src": "/images/hookah-lounge.jpg",
+      "src": "/images/gallery/hookah-lounge.jpg",
       "alt": "Lounge с кальянами и атмосферой",
       "span": "square"
     },
     {
-      "src": "/images/branding-stairs.jpg",
+      "src": "/images/gallery/branding-stairs.jpg",
       "alt": "Лестница и брендинг пространства",
       "span": "square"
     },
     {
-      "src": "/images/atmosphere-bw.jpg",
+      "src": "/images/gallery/atmosphere-bw.jpg",
       "alt": "Чёрно-белая атмосфера зала",
       "span": "square"
     },
     {
-      "src": "/images/logo-wall.jpg",
+      "src": "/images/gallery/logo-wall.jpg",
       "alt": "Стена с логотипом и зеленью",
       "span": "square"
     }
