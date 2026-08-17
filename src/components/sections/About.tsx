@@ -1,11 +1,9 @@
 "use client";
 
 import { JungleAmbience } from "@/components/shared/JungleAmbience";
-import Image from "next/image";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { Reveal } from "@/components/shared/Reveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { Carousel } from "@/components/shared/Carousel";
 
 const stats = [
   { value: "2025", label: "Год открытия" },
@@ -13,32 +11,22 @@ const stats = [
   { value: "∞", label: "Живых эмоций" },
 ];
 
-export function About() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
+// Плейсхолдер-набор для карусели — замените на новые фото, когда пришлёте:
+// просто поменяйте src на файлы в public/images/gallery/ (см. README там же).
+const aboutSlides = [
+  { src: "/images/gallery/interior-hall.jpg", alt: "Зал SOUL — хрусталь, зелень и тёплый свет" },
+  { src: "/images/gallery/oasis.jpg", alt: "Своды зелени и хрусталя в зале SOUL" },
+  { src: "/images/gallery/hookah-lounge.jpg", alt: "Зона с кальянами в SOUL" },
+];
 
+export function About() {
   return (
     <section id="about" className="relative overflow-hidden py-20 sm:py-24 lg:py-36">
       <JungleAmbience />
       <div className="container-wide relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          <div ref={ref} className="relative order-2 lg:order-1">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-              <motion.div style={{ y }} className="absolute inset-[-6%]">
-                <Image
-                  src="/images/gallery/interior-hall.jpg"
-                  alt="Зал SOUL — хрусталь, зелень и тёплый свет"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-[center_40%]"
-                />
-              </motion.div>
-              <div className="absolute inset-0 bg-gradient-to-t from-noir/60 via-transparent to-transparent" />
-            </div>
+          <div className="relative order-2 lg:order-1">
+            <Carousel slides={aboutSlides} />
             <div className="pointer-events-none absolute -bottom-4 -right-4 -z-0 hidden h-full w-full rounded-sm border border-gold/20 lg:block" />
           </div>
 
@@ -46,12 +34,13 @@ export function About() {
             <SectionHeading
               eyebrow="О пространстве"
               title="Вечер в другом ритме"
-              intro="Оазис в центре Москвы: зелень, хрусталь, авторская кухня и живая музыка."
+              intro="Пышный сад под сиянием роскошных люстр, где каждая деталь дышит теплом."
             />
 
             <Reveal delay={0.12}>
               <p className="mt-6 text-pretty text-[15px] leading-[1.75] text-ash sm:text-base">
-                Ужин, встреча с друзьями, живой вокал и DJ — всё в одном пространстве.
+                Авторская гастрономия, коктейли и шоу-программы в одном пространстве. Каждую
+                пятницу и субботу: DJ-сеты и живая музыка.
               </p>
             </Reveal>
 

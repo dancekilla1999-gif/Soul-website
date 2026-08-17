@@ -13,9 +13,9 @@ export function ConceptStates() {
     <section className="relative border-t border-white/[0.07] bg-graphite/50 py-20 sm:py-24 lg:py-32">
       <div className="container-wide">
         <SectionHeading
-          eyebrow="Концепция"
+          eyebrow="Ресторан-лаундж-бар"
           title="Несколько настроений"
-          intro="Вы выбираете ритм вечера."
+          intro="Вы сами выбираете настроение и ритм вашего вечера."
           align="center"
           className="mb-12 sm:mb-16 lg:mb-20"
         />
