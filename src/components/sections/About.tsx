@@ -1,11 +1,9 @@
 "use client";
 
 import { JungleAmbience } from "@/components/shared/JungleAmbience";
-import Image from "next/image";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { Reveal } from "@/components/shared/Reveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { Carousel } from "@/components/shared/Carousel";
 
 const stats = [
   { value: "2025", label: "Год открытия" },
@@ -13,32 +11,27 @@ const stats = [
   { value: "∞", label: "Живых эмоций" },
 ];
 
-export function About() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
+const aboutSlides = [
+  { src: "/images/gallery/bar-arches.jpg", alt: "Зал SOUL — подсвеченные арки и зелень" },
+  { src: "/images/gallery/chandelier-ferns.jpg", alt: "Хрустальная люстра в зелени под потолком" },
+  { src: "/images/gallery/cocktail-hookah.jpg", alt: "Коктейль и кальян на баре SOUL" },
+  { src: "/images/gallery/bar-mirror-wall.jpg", alt: "Зал SOUL — зеркальные арки и бар" },
+  { src: "/images/gallery/lounge-blue-red.jpg", alt: "Lounge-зона — синие диваны и бордовые кресла" },
+  { src: "/images/gallery/soul-sign-glow.jpg", alt: "Светящийся логотип SOUL среди зелени" },
+  { src: "/images/gallery/bar-red-chairs.jpg", alt: "Бар SOUL — люстры и бордовые кресла" },
+  { src: "/images/gallery/chandelier-rays.jpg", alt: "Большая люстра в лучах света" },
+  { src: "/images/gallery/waitress-bw.jpg", alt: "Атмосфера вечера в SOUL" },
+  { src: "/images/gallery/dj-peacock-screen.jpg", alt: "DJ-сет на фоне проекции с павлинами" },
+];
 
+export function About() {
   return (
     <section id="about" className="relative overflow-hidden py-20 sm:py-24 lg:py-36">
       <JungleAmbience />
       <div className="container-wide relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          <div ref={ref} className="relative order-2 lg:order-1">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-              <motion.div style={{ y }} className="absolute inset-[-6%]">
-                <Image
-                  src="/images/gallery/interior-hall.jpg"
-                  alt="Зал SOUL — хрусталь, зелень и тёплый свет"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-[center_40%]"
-                />
-              </motion.div>
-              <div className="absolute inset-0 bg-gradient-to-t from-noir/60 via-transparent to-transparent" />
-            </div>
+          <div className="relative order-2 lg:order-1">
+            <Carousel slides={aboutSlides} />
             <div className="pointer-events-none absolute -bottom-4 -right-4 -z-0 hidden h-full w-full rounded-sm border border-gold/20 lg:block" />
           </div>
 
@@ -46,12 +39,13 @@ export function About() {
             <SectionHeading
               eyebrow="О пространстве"
               title="Вечер в другом ритме"
-              intro="Оазис в центре Москвы: зелень, хрусталь, авторская кухня и живая музыка."
+              intro="Пышный сад под сиянием роскошных люстр, где каждая деталь дышит теплом."
             />
 
             <Reveal delay={0.12}>
               <p className="mt-6 text-pretty text-[15px] leading-[1.75] text-ash sm:text-base">
-                Ужин, встреча с друзьями, живой вокал и DJ — всё в одном пространстве.
+                Авторская гастрономия, коктейли и шоу-программы в одном пространстве. Каждую
+                пятницу и субботу: DJ-сеты и живая музыка.
               </p>
             </Reveal>
 

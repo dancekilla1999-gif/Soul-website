@@ -47,7 +47,7 @@ export function Atmosphere() {
 
           <TextReveal
             as="h2"
-            text="Свет, зелень, звук"
+            text="Живое пространство и живые эмоции"
             className="mt-6 text-balance font-serif text-4xl leading-[1.05] text-bone sm:text-5xl lg:text-[3.8rem]"
           />
 
@@ -61,7 +61,7 @@ export function Atmosphere() {
             <div className="mt-12 flex items-center gap-5">
               <span className="h-px w-16 bg-gold/70" />
               <p className="font-serif text-xl italic text-gold-soft sm:text-2xl">
-                Живое пространство · Живые эмоции
+                Вечер, который создаёте вы
               </p>
             </div>
           </Reveal>

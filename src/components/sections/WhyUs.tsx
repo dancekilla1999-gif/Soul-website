@@ -2,12 +2,9 @@
 
 import { motion } from "framer-motion";
 import {
-  Crown,
-  Leaf,
-  Music4,
+  Flame,
   Sparkles,
   UtensilsCrossed,
-  Wine,
   type LucideIcon,
 } from "lucide-react";
 import { advantages } from "@/lib/data";
@@ -16,11 +13,8 @@ import { staggerContainer, staggerItem } from "@/components/shared/Reveal";
 
 const icons: Record<string, LucideIcon> = {
   Sparkles,
-  Music4,
   UtensilsCrossed,
-  Wine,
-  Leaf,
-  Crown,
+  Flame,
 };
 
 export function WhyUs() {
@@ -29,8 +23,8 @@ export function WhyUs() {
       <div className="container-wide">
         <SectionHeading
           eyebrow="Почему SOUL"
-          title="Почему сюда"
-          intro="Шоу, музыка, кухня, бар и сервис — коротко и по делу."
+          title="Почему мы"
+          intro="Ничего лишнего — только шоу, музыка, авторская кухня и коктейли, безупречный сервис."
           align="center"
           className="mb-16 lg:mb-20"
         />
@@ -40,7 +34,7 @@ export function WhyUs() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-10% 0px" }}
-          className="grid gap-px overflow-hidden rounded-sm border border-white/[0.07] bg-white/[0.06] sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-px overflow-hidden rounded-sm border border-white/[0.07] bg-white/[0.06] sm:grid-cols-3"
         >
           {advantages.map((item) => {
             const Icon = icons[item.icon] ?? Sparkles;
