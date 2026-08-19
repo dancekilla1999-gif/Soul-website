@@ -9,7 +9,7 @@ import { Reveal } from "@/components/shared/Reveal";
 const notes = [
   {
     title: "Авторская карта",
-    text: "Сигнатурные коктейли, созданные шеф-барменом специально для SOUL.",
+    text: "Сигнатурные коктейли, созданные шеф-барменом специально для Соул.",
   },
   {
     title: "Вино и крепкое",
@@ -62,7 +62,7 @@ export function Bar() {
               <motion.div style={{ y }} className="absolute inset-[-7%]">
                 <Image
                   src="/images/gallery/bar.jpg"
-                  alt="Бар SOUL — приготовление авторских коктейлей"
+                  alt="Бар Соул — приготовление авторских коктейлей"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-[center_25%]"

@@ -12,16 +12,16 @@ const stats = [
 ];
 
 const aboutSlides = [
-  { src: "/images/gallery/bar-arches.jpg", alt: "Зал SOUL — подсвеченные арки и зелень" },
+  { src: "/images/gallery/bar-arches.jpg", alt: "Зал Соул — подсвеченные арки и зелень" },
   { src: "/images/gallery/chandelier-ferns.jpg", alt: "Хрустальная люстра в зелени под потолком" },
-  { src: "/images/gallery/cocktail-hookah.jpg", alt: "Коктейль и кальян на баре SOUL" },
-  { src: "/images/gallery/bar-mirror-wall.jpg", alt: "Зал SOUL — зеркальные арки и бар" },
-  { src: "/images/gallery/lounge-blue-red.jpg", alt: "Lounge-зона — синие диваны и бордовые кресла" },
-  { src: "/images/gallery/soul-sign-glow.jpg", alt: "Светящийся логотип SOUL среди зелени" },
-  { src: "/images/gallery/bar-red-chairs.jpg", alt: "Бар SOUL — люстры и бордовые кресла" },
+  { src: "/images/gallery/cocktail-hookah.jpg", alt: "Коктейль и кальян на баре Соул" },
+  { src: "/images/gallery/bar-mirror-wall.jpg", alt: "Зал Соул — зеркальные арки и бар" },
+  { src: "/images/gallery/lounge-blue-red.jpg", alt: "Лаундж-зона — синие диваны и бордовые кресла" },
+  { src: "/images/gallery/soul-sign-glow.jpg", alt: "Светящийся логотип Соул среди зелени" },
+  { src: "/images/gallery/bar-red-chairs.jpg", alt: "Бар Соул — люстры и бордовые кресла" },
   { src: "/images/gallery/chandelier-rays.jpg", alt: "Большая люстра в лучах света" },
-  { src: "/images/gallery/waitress-bw.jpg", alt: "Атмосфера вечера в SOUL" },
-  { src: "/images/gallery/dj-peacock-screen.jpg", alt: "DJ-сет на фоне проекции с павлинами" },
+  { src: "/images/gallery/waitress-bw.jpg", alt: "Атмосфера вечера в Соул" },
+  { src: "/images/gallery/dj-peacock-screen.jpg", alt: "Диджей-сет на фоне проекции с павлинами" },
 ];
 
 export function About() {
@@ -45,7 +45,7 @@ export function About() {
             <Reveal delay={0.12}>
               <p className="mt-6 text-pretty text-[15px] leading-[1.75] text-ash sm:text-base">
                 Авторская гастрономия, коктейли и шоу-программы в одном пространстве. Каждую
-                пятницу и субботу: DJ-сеты и живая музыка.
+                пятницу и субботу: диджей-сеты и живая музыка.
               </p>
             </Reveal>
 

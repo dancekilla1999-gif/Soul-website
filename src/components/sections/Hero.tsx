@@ -57,7 +57,7 @@ export function Hero() {
         <div className="absolute inset-0">
           <Image
             src="/images/hero/hero-main.jpg"
-            alt="Интерьер ресторана SOUL — оазис природы в сердце Москвы"
+            alt="Интерьер ресторана Соул — оазис природы в сердце Москвы"
             fill
             priority
             sizes="100vw"
