@@ -2,8 +2,11 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, type PanInfo } from "framer-motion";
 import { cn } from "@/lib/utils";
+
+const SWIPE_OFFSET_THRESHOLD = 50;
+const SWIPE_VELOCITY_THRESHOLD = 300;
 
 export interface CarouselSlide {
   src: string;
@@ -19,8 +22,9 @@ interface CarouselProps {
 /**
  * Лёгкая автопрокручиваемая карусель фото (без внешних библиотек —
  * тот же стек, что и остальной сайт: framer-motion + next/image).
- * Пауза при наведении, точки-навигация, поддержка prefers-reduced-motion
- * (автопрокрутка отключается — переключение только вручную).
+ * Пауза при наведении, точки-навигация, свайп на тач-устройствах,
+ * поддержка prefers-reduced-motion (автопрокрутка отключается —
+ * переключение только вручную).
  */
 export function Carousel({ slides, className, intervalMs = 5000 }: CarouselProps) {
   const [index, setIndex] = useState(0);
@@ -42,13 +46,29 @@ export function Carousel({ slides, className, intervalMs = 5000 }: CarouselProps
     return () => clearInterval(id);
   }, [index, paused, slides.length, intervalMs, go]);
 
+  const onPanEnd = (_: unknown, info: PanInfo) => {
+    setPaused(false);
+    if (slides.length <= 1) return;
+    const { offset, velocity } = info;
+    if (offset.x <= -SWIPE_OFFSET_THRESHOLD || velocity.x <= -SWIPE_VELOCITY_THRESHOLD) {
+      go(index + 1);
+    } else if (offset.x >= SWIPE_OFFSET_THRESHOLD || velocity.x >= SWIPE_VELOCITY_THRESHOLD) {
+      go(index - 1);
+    }
+  };
+
   if (slides.length === 0) return null;
 
   return (
-    <div
-      className={cn("relative aspect-[4/5] overflow-hidden rounded-sm", className)}
+    <motion.div
+      className={cn(
+        "relative aspect-[4/5] touch-pan-y overflow-hidden rounded-sm",
+        className
+      )}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
+      onPanStart={() => setPaused(true)}
+      onPanEnd={onPanEnd}
     >
       <AnimatePresence>
         <motion.div
@@ -89,6 +109,6 @@ export function Carousel({ slides, className, intervalMs = 5000 }: CarouselProps
           ))}
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
