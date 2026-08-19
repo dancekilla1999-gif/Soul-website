@@ -26,7 +26,7 @@ export function Atmosphere() {
       <motion.div style={{ y }} className="absolute inset-[-12%] z-0">
         <Image
           src="/images/gallery/atmosphere.jpg"
-          alt="Атмосфера SOUL — свет, зелень и хрусталь"
+          alt="Атмосфера Соул — свет, зелень и хрусталь"
           fill
           sizes="100vw"
           className="object-cover object-[center_30%]"

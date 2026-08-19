@@ -109,7 +109,7 @@ export function Menu() {
           <div className="relative mt-20 aspect-[21/9] overflow-hidden rounded-sm lg:aspect-[3/1]">
             <Image
               src="/images/gallery/details.jpg"
-              alt="Детали подачи SOUL"
+              alt="Детали подачи Соул"
               fill
               sizes="(max-width: 1024px) 100vw, 1400px"
               className="object-cover transition-transform duration-[1.6s] ease-out hover:scale-105"

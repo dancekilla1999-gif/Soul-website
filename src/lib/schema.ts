@@ -73,14 +73,14 @@ export function restaurantSchema() {
     },
     amenityFeature: [
       { "@type": "LocationFeatureSpecification", name: "Живая музыка", value: true },
-      { "@type": "LocationFeatureSpecification", name: "DJ-сеты", value: true },
-      { "@type": "LocationFeatureSpecification", name: "VIP-зоны", value: true },
+      { "@type": "LocationFeatureSpecification", name: "Диджей-сеты", value: true },
+      { "@type": "LocationFeatureSpecification", name: "ВИП-зоны", value: true },
       { "@type": "LocationFeatureSpecification", name: "Иммерсивные шоу", value: true },
     ],
     sameAs: [site.social.instagram, site.social.telegram, site.social.whatsapp],
     hasMenu: {
       "@type": "Menu",
-      name: "Меню SOUL",
+      name: "Меню Соул",
       url: `${baseUrl}/#menu`,
       inLanguage: "ru-RU",
       hasMenuSection: Array.from(new Set(menu.map((m) => m.category))).map((category) => ({

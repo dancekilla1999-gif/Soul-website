@@ -17,7 +17,7 @@ export function Events() {
         <SectionHeading
           eyebrow="Афиша"
           title="Афиша выходных"
-          intro="Пятница и суббота — живая музыка и DJ."
+          intro="Пятница и суббота — живая музыка и диджей."
           align="center"
           className="mb-16 lg:mb-20"
         />

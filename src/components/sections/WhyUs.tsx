@@ -22,7 +22,7 @@ export function WhyUs() {
     <section className="relative overflow-hidden py-20 sm:py-24 lg:py-36">
       <div className="container-wide">
         <SectionHeading
-          eyebrow="Почему SOUL"
+          eyebrow="Почему Соул"
           title="Почему мы"
           intro="Ничего лишнего — только шоу, музыка, авторская кухня и коктейли, безупречный сервис."
           align="center"

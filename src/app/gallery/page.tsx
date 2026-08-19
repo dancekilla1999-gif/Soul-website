@@ -15,7 +15,7 @@ export default function GalleryPage() {
       <PageHero
         eyebrow="Галерея"
         title="Загляните внутрь"
-        subtitle="Свет, зелень, хрусталь и лица гостей — SOUL в кадрах одного вечера."
+        subtitle="Свет, зелень, хрусталь и лица гостей — Соул в кадрах одного вечера."
       />
       <Gallery />
     </>
