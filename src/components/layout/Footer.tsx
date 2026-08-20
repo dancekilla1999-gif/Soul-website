@@ -97,7 +97,7 @@ export function Footer() {
             © {year} {site.name} · {site.nameRu}. Все права защищены.
           </p>
           <div className="flex items-center gap-5">
-            <Link href="/contacts" className="transition-colors hover:text-gold">
+            <Link href="/privacy" className="transition-colors hover:text-gold">
               Политика конфиденциальности
             </Link>
             <Link href="/contacts#reserve" className="transition-colors hover:text-gold">

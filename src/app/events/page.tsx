@@ -13,7 +13,6 @@ export default function EventsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Афиша"
         title="Афиша"
         subtitle="Пятница и суббота — музыка и диджей."
       />
