@@ -171,9 +171,9 @@
   ],
   "events": [
     {
-      "date": "15.08",
-      "weekday": "Суббота",
-      "title": "Субботний вечер",
+      "date": "11.09",
+      "weekday": "Пятница",
+      "title": "Пятничный вечер",
       "subtitle": "Диджей-сет: Грейли · Перкуссионное шоу",
       "time": "21:00",
       "lineup": [
@@ -273,8 +273,8 @@
       "span": "square"
     },
     {
-      "src": "/images/gallery/logo-wall.jpg",
-      "alt": "Стена с логотипом и зеленью",
+      "src": "/images/gallery/waitress-bw.jpg",
+      "alt": "Гости и атмосфера вечера в Соул",
       "span": "square"
     }
   ],
