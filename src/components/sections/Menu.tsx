@@ -113,8 +113,8 @@ export function Menu() {
         <Reveal delay={0.15}>
           <div className="relative mt-20 aspect-[21/9] overflow-hidden rounded-sm lg:aspect-[3/1]">
             <Image
-              src="/images/gallery/details.jpg"
-              alt="Детали подачи Соул"
+              src="/images/menu/banner-cheese-board.jpg"
+              alt="Сырная тарелка с мёдом и орехами — подача Соул"
               fill
               sizes="(max-width: 1024px) 100vw, 1400px"
               className="object-cover transition-transform duration-[1.6s] ease-out hover:scale-105"
