@@ -706,6 +706,21 @@
       "src": "/images/gallery/waitress-bw.jpg",
       "alt": "Гости и атмосфера вечера в Соул",
       "span": "square"
+    },
+    {
+      "src": "/images/menu/tartare-beef.jpg",
+      "alt": "Тартар из говядины — подача Соул",
+      "span": "square"
+    },
+    {
+      "src": "/images/menu/salad-caesar.jpg",
+      "alt": "Цезарь — авторская подача Соул",
+      "span": "square"
+    },
+    {
+      "src": "/images/menu/cocktail-pink.jpg",
+      "alt": "Авторский коктейль из барной карты Соул",
+      "span": "square"
     }
   ],
   "faq": [
