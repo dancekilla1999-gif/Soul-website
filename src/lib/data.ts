@@ -36,11 +36,26 @@ export const advantages = [
   },
 ] as const;
 
-export type MenuCategory = "Закуски" | "Основное" | "Из огня" | "Десерты" | "Коктейли";
+export type MenuCategory =
+  | "Холодные закуски"
+  | "Салаты"
+  | "Горячие закуски"
+  | "Супы"
+  | "Горячие блюда"
+  | "Гриль"
+  | "Пасты"
+  | "Бургеры"
+  | "Пиццы"
+  | "Роллы / Гунканы"
+  | "Гарниры"
+  | "Соусы"
+  | "Десерты"
+  | "Коктейли";
 
 export interface MenuItem {
   name: string;
-  description: string;
+  description?: string;
+  weight?: string;
   price: string;
   category: MenuCategory;
   tag?: "Сигниче" | "Выбор шефа" | "Веган" | "Хит";
@@ -48,9 +63,18 @@ export interface MenuItem {
 }
 
 export const menuCategories: MenuCategory[] = [
-  "Закуски",
-  "Основное",
-  "Из огня",
+  "Холодные закуски",
+  "Салаты",
+  "Горячие закуски",
+  "Супы",
+  "Горячие блюда",
+  "Гриль",
+  "Пасты",
+  "Бургеры",
+  "Пиццы",
+  "Роллы / Гунканы",
+  "Гарниры",
+  "Соусы",
   "Десерты",
   "Коктейли",
 ];

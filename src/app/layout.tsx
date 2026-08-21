@@ -16,6 +16,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/shared/ScrollProgress";
 import { FloatingReserve } from "@/components/shared/FloatingReserve";
+import { CookieBanner } from "@/components/shared/CookieBanner";
 import { PageTransition, TransitionCurtain } from "@/components/providers/PageTransition";
 import { YandexMetrika } from "@/components/providers/YandexMetrika";
 
@@ -449,6 +450,7 @@ export default function RootLayout({
         <FloatingReserve />
         <Cursor />
         <Toaster />
+        <CookieBanner />
         <YandexMetrika />
       </body>
     </html>

@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Magnetic } from "@/components/shared/MagneticButton";
+import { ConsentCheckbox } from "@/components/shared/ConsentCheckbox";
 import { cn } from "@/lib/utils";
 import { site } from "@/lib/data";
 
@@ -201,6 +202,8 @@ export function ReviewForm() {
                 />
               </div>
             </div>
+
+            <ConsentCheckbox name="consent" />
 
             <Magnetic>
               <Button type="submit" size="lg" variant="gold" disabled={loading} className="w-full">
