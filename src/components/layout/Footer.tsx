@@ -92,7 +92,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/[0.07] pt-7 text-[11px] tracking-wide2 text-ash/60 sm:mt-14 sm:flex-row sm:text-xs">
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/[0.07] pt-7 text-xs tracking-wide2 text-ash/60 sm:mt-14 sm:flex-row">
           <p>
             © {year} {site.name} · {site.nameRu}. Все права защищены.
           </p>
@@ -105,6 +105,10 @@ export function Footer() {
             </Link>
           </div>
         </div>
+
+        <p className="mt-4 text-xs leading-relaxed text-ash/45">
+          {site.legalName}. ОГРН: уточняется. ИНН: уточняется. Юридический адрес: {site.address.city}, {site.address.street}.
+        </p>
       </div>
     </footer>
   );
