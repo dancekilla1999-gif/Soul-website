@@ -10,17 +10,21 @@ import { staggerContainer, staggerItem } from "@/components/shared/Reveal";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-export function Events() {
+/** На странице /events заголовок уже есть в шапке страницы — там его
+ *  прячем, чтобы «Афиша» не стояла дважды подряд. */
+export function Events({ showHeading = true }: { showHeading?: boolean } = {}) {
   return (
     <section id="events" className="relative overflow-hidden py-20 sm:py-24 lg:py-36">
       <div className="container-wide">
-        <SectionHeading
-          eyebrow="Афиша"
-          title="Афиша выходных"
-          intro="Пятница и суббота — живая музыка и диджей."
-          align="center"
-          className="mb-16 lg:mb-20"
-        />
+        {showHeading && (
+          <SectionHeading
+            eyebrow="Афиша"
+            title="Афиша выходных"
+            intro="Пятница и суббота — живая музыка и диджей."
+            align="center"
+            className="mb-16 lg:mb-20"
+          />
+        )}
 
         <motion.ul
           variants={staggerContainer}
@@ -72,7 +76,7 @@ export function Events() {
                 )}
 
                 {event.featured && (
-                  <span className="absolute left-5 top-5 border border-gold/50 bg-noir/60 px-3 py-1 text-[10px] uppercase tracking-eyebrow text-gold backdrop-blur-sm">
+                  <span className="absolute left-5 top-5 border border-gold/50 bg-noir/60 px-3 py-1 text-[12px] uppercase tracking-eyebrow text-gold backdrop-blur-sm">
                     Главное событие
                   </span>
                 )}
@@ -82,7 +86,7 @@ export function Events() {
                     <span className="font-serif text-3xl text-gold-soft">
                       {event.date}
                     </span>
-                    <span className="text-[11px] uppercase tracking-eyebrow text-ash">
+                    <span className="text-[12px] uppercase tracking-eyebrow text-ash">
                       {event.weekday}
                     </span>
                   </div>
@@ -95,16 +99,18 @@ export function Events() {
                   </p>
 
                   <div className="mt-5 space-y-2 border-t border-white/[0.07] pt-4">
-                    <p className="flex items-center gap-2 text-xs tracking-wide2 text-bone/70">
-                      <Clock className="h-3.5 w-3.5 text-gold" />
-                      Начало в {event.time}
-                    </p>
+                    {event.time && (
+                      <p className="flex items-center gap-2 text-xs tracking-wide2 text-bone">
+                        <Clock className="h-3.5 w-3.5 text-gold" />
+                        Начало в {event.time}
+                      </p>
+                    )}
                     {event.lineup.map((line) => (
                       <p
                         key={line}
                         className="flex items-center gap-2 text-xs tracking-wide2 text-ash"
                       >
-                        <Music4 className="h-3.5 w-3.5 text-gold/70" />
+                        <Music4 className="h-3.5 w-3.5 text-gold" />
                         {line}
                       </p>
                     ))}

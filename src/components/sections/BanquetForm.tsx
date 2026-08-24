@@ -44,7 +44,7 @@ const timeOptions = [
 const todayISO = () => new Date().toISOString().split("T")[0];
 
 const fieldClass =
-  "mt-2 w-full appearance-none border-0 border-b border-white/15 bg-transparent px-1 py-2 text-[15px] text-bone transition-colors focus:border-gold focus:outline-none [color-scheme:dark]";
+  "mt-2 w-full appearance-none border-0 border-b border-white/15 bg-transparent px-1 py-2 text-[16px] text-bone transition-colors focus:border-gold focus:outline-none [color-scheme:dark]";
 
 function formatPhoneRu(raw: string): string {
   let digits = raw.replace(/\D/g, "");
@@ -122,13 +122,13 @@ export function BanquetForm() {
 
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-4">
-            <div className="space-y-6 text-bone/75">
-              <p className="text-[15px] leading-relaxed">
+            <div className="space-y-6 text-bone">
+              <p className="text-[16px] leading-relaxed">
                 Оставьте заявку — менеджер перезвонит, уточнит формат, количество
                 гостей и предложит зону и меню под ваш бюджет.
               </p>
               <div className="space-y-3 border-t border-white/10 pt-6">
-                <p className="text-[11px] uppercase tracking-eyebrow text-gold-soft">
+                <p className="text-[12px] uppercase tracking-eyebrow text-gold-soft">
                   Или сразу позвоните
                 </p>
                 <a
@@ -139,7 +139,7 @@ export function BanquetForm() {
                   +7 917 542-10-00
                 </a>
               </div>
-              <ul className="space-y-2 border-t border-white/10 pt-6 text-sm text-bone/60">
+              <ul className="space-y-2 border-t border-white/10 pt-6 text-sm text-ash">
                 <li>· От 10 до 500 гостей</li>
                 <li>· Приватные зоны и основной зал</li>
                 <li>· Индивидуальное меню и бар</li>

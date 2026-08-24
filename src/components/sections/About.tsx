@@ -43,7 +43,7 @@ export function About() {
             />
 
             <Reveal delay={0.12}>
-              <p className="mt-6 text-pretty text-[15px] leading-[1.75] text-ash sm:text-base">
+              <p className="mt-6 text-pretty text-[16px] leading-[1.75] text-ash sm:text-base">
                 Авторская гастрономия, коктейли и шоу-программы в одном пространстве. Каждую
                 пятницу и субботу: диджей-сеты и живая музыка.
               </p>
@@ -56,7 +56,7 @@ export function About() {
                     <div className="font-serif text-3xl leading-none text-gold-soft sm:text-4xl lg:text-5xl">
                       {s.value}
                     </div>
-                    <div className="mt-2.5 text-[10px] uppercase tracking-wide2 text-ash/90 sm:text-xs">
+                    <div className="mt-2.5 text-[12px] uppercase tracking-wide2 text-ash sm:text-xs">
                       {s.label}
                     </div>
                   </div>

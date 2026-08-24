@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 import { site } from "@/lib/data";
 
 const fieldClass =
-  "mt-2 w-full appearance-none border-0 border-b border-white/15 bg-transparent px-1 py-2 text-[15px] text-bone transition-colors focus:border-gold focus:outline-none [color-scheme:dark]";
+  "mt-2 w-full appearance-none border-0 border-b border-white/15 bg-transparent px-1 py-2 text-[16px] text-bone transition-colors focus:border-gold focus:outline-none [color-scheme:dark]";
 
 function formatPhoneRu(raw: string): string {
   let digits = raw.replace(/\D/g, "");
@@ -93,7 +93,7 @@ export function ReviewForm() {
           <Reveal className="mx-auto max-w-lg text-center">
             <CheckCircle2 className="mx-auto h-12 w-12 text-gold" strokeWidth={1.2} />
             <h2 className="mt-6 font-serif text-3xl text-bone">Спасибо за отзыв!</h2>
-            <p className="mt-3 text-[15px] leading-relaxed text-ash">
+            <p className="mt-3 text-[16px] leading-relaxed text-ash">
               Мы обязательно его прочитаем. Ждём вас снова в {site.name}.
             </p>
           </Reveal>
@@ -108,7 +108,7 @@ export function ReviewForm() {
         <Reveal className="mx-auto max-w-xl">
           <form onSubmit={onSubmit} className="space-y-8">
             <div className="text-center">
-              <p className="eyebrow text-gold/90">Ваша оценка</p>
+              <p className="eyebrow text-gold">Ваша оценка</p>
               <div
                 className="mt-4 flex items-center justify-center gap-2"
                 onMouseLeave={() => setHoverRating(0)}
@@ -130,7 +130,7 @@ export function ReviewForm() {
                       <Star
                         className={cn(
                           "h-9 w-9 transition-colors",
-                          active ? "fill-gold text-gold" : "fill-transparent text-bone/25"
+                          active ? "fill-gold text-gold" : "fill-transparent text-ash"
                         )}
                         strokeWidth={1.3}
                       />
@@ -142,7 +142,7 @@ export function ReviewForm() {
 
             {isFive && (
               <Reveal className="rounded-sm border border-gold/30 bg-gold/[0.06] p-5 text-center">
-                <p className="text-[15px] text-bone">
+                <p className="text-[16px] text-bone">
                   Спасибо! Можно ли опубликовать ваш отзыв на сайте?
                 </p>
                 <div className="mt-4 flex items-center justify-center gap-3">
@@ -150,10 +150,10 @@ export function ReviewForm() {
                     type="button"
                     onClick={() => setCanPublish(true)}
                     className={cn(
-                      "h-10 min-w-[6.5rem] rounded-full border text-[12px] uppercase tracking-wide2 transition-colors",
+                      "h-10 min-w-[6.5rem] rounded-full border text-[13px] uppercase tracking-wide2 transition-colors",
                       canPublish === true
                         ? "border-gold bg-gold text-noir"
-                        : "border-white/15 text-bone/80 hover:border-gold hover:text-gold"
+                        : "border-white/15 text-bone hover:border-gold hover:text-gold"
                     )}
                   >
                     Да, можно
@@ -162,10 +162,10 @@ export function ReviewForm() {
                     type="button"
                     onClick={() => setCanPublish(false)}
                     className={cn(
-                      "h-10 min-w-[6.5rem] rounded-full border text-[12px] uppercase tracking-wide2 transition-colors",
+                      "h-10 min-w-[6.5rem] rounded-full border text-[13px] uppercase tracking-wide2 transition-colors",
                       canPublish === false
                         ? "border-bone/60 bg-bone/10 text-bone"
-                        : "border-white/15 text-bone/80 hover:border-bone/60"
+                        : "border-white/15 text-bone hover:border-bone/60"
                     )}
                   >
                     Не публиковать

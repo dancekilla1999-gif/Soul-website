@@ -52,7 +52,7 @@ export function Atmosphere() {
           />
 
           <Reveal delay={0.2}>
-            <p className="mt-8 text-pretty text-lg leading-relaxed text-bone/80">
+            <p className="mt-8 text-pretty text-lg leading-relaxed text-bone">
               Приглушённый свет, зелень и хрусталь. Вкус и музыка — без лишнего шума.
             </p>
           </Reveal>

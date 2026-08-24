@@ -50,7 +50,7 @@ export function Navbar() {
           <Link
             href="/"
             aria-label={`${site.name} — на главную`}
-            className="absolute left-1/2 top-1/2 z-[70] -translate-x-1/2 -translate-y-1/2 drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)]"
+            className="absolute left-1/2 top-1/2 z-[70] -translate-x-1/2 -translate-y-1/2 drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)] lg:static lg:order-2 lg:mx-6 lg:shrink-0 lg:translate-x-0 lg:translate-y-0 xl:mx-10"
             onClick={() => setOpen(false)}
           >
             <Image
@@ -66,7 +66,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden flex-1 items-center gap-7 lg:flex">
+          <nav className="hidden flex-1 items-center gap-5 lg:order-1 lg:flex xl:gap-7">
             {nav.map((item) => {
               const active = pathname === item.href;
               return (
@@ -74,8 +74,8 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "group relative text-[12px] uppercase tracking-wide2 transition-colors duration-300",
-                    active ? "text-gold" : "text-bone/80 hover:text-bone drop-shadow-sm"
+                    "group relative whitespace-nowrap text-[13px] uppercase tracking-wide2 transition-colors duration-300",
+                    active ? "text-gold" : "text-bone hover:text-bone drop-shadow-sm"
                   )}
                 >
                   {item.label}
@@ -90,10 +90,10 @@ export function Navbar() {
             })}
           </nav>
 
-          <div className="hidden items-center gap-6 lg:flex">
+          <div className="hidden items-center gap-6 lg:order-3 lg:flex lg:flex-1 lg:justify-end">
             <a
               href={`tel:${site.phoneHref}`}
-              className="flex items-center gap-2 text-[12px] tracking-wide2 text-bone/80 transition-colors duration-300 hover:text-gold"
+              className="flex items-center gap-2 text-[13px] tracking-wide2 text-bone transition-colors duration-300 hover:text-gold"
             >
               <Phone className="h-3.5 w-3.5 text-gold" strokeWidth={1.5} />
               {site.phone}
@@ -184,7 +184,7 @@ export function Navbar() {
                 >
                   <a
                     href={`tel:${site.phoneHref}`}
-                    className="flex items-center gap-2.5 text-sm tracking-wide2 text-bone/80"
+                    className="flex items-center gap-2.5 text-sm tracking-wide2 text-bone"
                   >
                     <Phone className="h-4 w-4 text-gold" strokeWidth={1.5} />
                     {site.phone}
