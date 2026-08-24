@@ -15,8 +15,8 @@ const config: Config = {
         graphite: "#0e0c0a",
         espresso: "#171208",
         gold: {
-          DEFAULT: "#b08b5a",
-          soft: "#d6b789",
+          DEFAULT: "#c49e6a",
+          soft: "#e0c79b",
           deep: "#8a6c43",
         },
         bone: "#f5f2ec",
@@ -28,6 +28,14 @@ const config: Config = {
           deep: "#064036",
           glow: "rgba(26,138,114,0.35)",
         },
+      },
+      fontSize: {
+        // Шкала поднята на шаг ради читаемости: базовые 12/14/16 px в тёмной
+        // теме с тонким шрифтом мелковаты для возрастного зрения.
+        xs: ["0.8125rem", { lineHeight: "1.5" }],     // 13px
+        sm: ["0.9375rem", { lineHeight: "1.65" }],    // 15px
+        base: ["1.0625rem", { lineHeight: "1.75" }],  // 17px
+        lg: ["1.1875rem", { lineHeight: "1.7" }],     // 19px
       },
       fontFamily: {
         serif: ["var(--font-cormorant)", "Cormorant Garamond", "Georgia", "serif"],

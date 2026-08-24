@@ -113,7 +113,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-5 max-w-md text-pretty text-[15px] tracking-wide text-bone/75 sm:mt-7 sm:text-lg"
+          className="mt-5 max-w-md text-pretty text-[16px] tracking-wide text-bone sm:mt-7 sm:text-lg"
         >
           {site.tagline}
         </motion.p>
@@ -131,8 +131,8 @@ export function Hero() {
                 href={btn.href}
                 className={
                   btn.primary
-                    ? "flex h-12 w-full items-center justify-center rounded-full border border-gold/80 bg-gold/95 text-[12px] font-medium uppercase tracking-[0.18em] text-noir shadow-[0_12px_32px_-12px_rgba(176,139,90,0.7)] transition-all duration-300 hover:bg-gold-soft hover:shadow-[0_16px_40px_-10px_rgba(176,139,90,0.9)] active:scale-[0.98] sm:h-[3.15rem] sm:text-[13px]"
-                    : "flex h-12 w-full items-center justify-center rounded-full border border-white/25 bg-noir/40 text-[12px] font-medium uppercase tracking-[0.18em] text-bone backdrop-blur-sm transition-all duration-300 hover:border-gold/60 hover:bg-gold/10 hover:text-gold active:scale-[0.98] sm:h-[3.15rem] sm:text-[13px]"
+                    ? "flex h-12 w-full items-center justify-center rounded-full border border-gold/80 bg-gold/95 text-[13px] font-medium uppercase tracking-[0.18em] text-noir shadow-[0_12px_32px_-12px_rgba(176,139,90,0.7)] transition-all duration-300 hover:bg-gold-soft hover:shadow-[0_16px_40px_-10px_rgba(176,139,90,0.9)] active:scale-[0.98] sm:h-[3.15rem] sm:text-[14px]"
+                    : "flex h-12 w-full items-center justify-center rounded-full border border-white/25 bg-noir/40 text-[13px] font-medium uppercase tracking-[0.18em] text-bone backdrop-blur-sm transition-all duration-300 hover:border-gold/60 hover:bg-gold/10 hover:text-gold active:scale-[0.98] sm:h-[3.15rem] sm:text-[14px]"
                 }
               >
                 {btn.label}
@@ -149,7 +149,7 @@ export function Hero() {
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 sm:bottom-10"
       >
         <div className="flex flex-col items-center gap-2.5">
-          <span className="text-[9px] uppercase tracking-eyebrow text-bone/45">
+          <span className="text-[11px] uppercase tracking-eyebrow text-ash">
             Листайте вниз
           </span>
           <div className="flex h-10 w-5 justify-center rounded-full border border-white/20 p-1">

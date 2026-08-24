@@ -16,7 +16,7 @@ export default function EventsPage() {
         title="Афиша"
         subtitle="Пятница и суббота — музыка и диджей."
       />
-      <Events />
+      <Events showHeading={false} />
     </>
   );
 }

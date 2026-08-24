@@ -33,7 +33,7 @@ export function ConceptStates() {
               variants={staggerItem}
               className="group relative bg-noir/95 p-8 transition-colors duration-500 hover:bg-graphite sm:p-9 lg:p-12"
             >
-              <span className="font-serif text-4xl text-gold/20 transition-colors duration-500 group-hover:text-gold/40 sm:text-5xl">
+              <span className="font-serif text-4xl text-gold transition-colors duration-500 group-hover:text-gold sm:text-5xl">
                 0{i + 1}
               </span>
               <h3 className="mt-5 font-serif text-xl text-bone sm:mt-6 sm:text-2xl lg:text-[1.7rem]">

@@ -39,7 +39,7 @@ export function FloatingReserve() {
             href="/contacts#reserve"
             className={cn(
               "group flex items-center gap-2.5 rounded-full bg-gold px-5 py-3.5",
-              "text-[13px] font-medium uppercase tracking-wide2 text-noir",
+              "text-[14px] font-medium uppercase tracking-wide2 text-noir",
               "shadow-[0_8px_32px_rgba(201,169,98,0.35)]",
               "transition-all duration-300 hover:bg-gold/90 hover:shadow-[0_12px_40px_rgba(201,169,98,0.45)]",
               "active:scale-[0.97]"
