@@ -146,6 +146,14 @@ export function BanquetForm() {
                 <li>· Декор, музыка, ведущий — по запросу</li>
                 <li>· Возможность аренды двух этажей</li>
               </ul>
+              <div className="border-t border-white/10 pt-6">
+                <p className="text-[12px] uppercase tracking-eyebrow text-gold-soft">
+                  Полное сопровождение
+                </p>
+                <p className="mt-2 text-sm text-ash">
+                  От первого звонка до последнего тоста — берём на себя всю организацию.
+                </p>
+              </div>
             </div>
           </Reveal>
 

@@ -36,8 +36,7 @@ export function Bar() {
           <div className="order-2 lg:order-1">
             <SectionHeading
               eyebrow="Бар"
-              title="Коктейли, продуманные до последней капли"
-              intro="Ещё один повод задержаться за столиком."
+              title="Ещё один повод задержаться за столиком"
             />
 
             <Reveal delay={0.15}>
