@@ -12,16 +12,16 @@ const stats = [
 ];
 
 const aboutSlides = [
-  { src: "/images/gallery/bar-arches.jpg", alt: "Зал Соул — подсвеченные арки и зелень" },
-  { src: "/images/gallery/chandelier-ferns.jpg", alt: "Хрустальная люстра в зелени под потолком" },
-  { src: "/images/gallery/cocktail-hookah.jpg", alt: "Коктейль и кальян на баре Соул" },
-  { src: "/images/gallery/bar-mirror-wall.jpg", alt: "Зал Соул — зеркальные арки и бар" },
-  { src: "/images/gallery/lounge-blue-red.jpg", alt: "Лаундж-зона — синие диваны и бордовые кресла" },
-  { src: "/images/gallery/soul-sign-glow.jpg", alt: "Светящийся логотип Соул среди зелени" },
-  { src: "/images/gallery/bar-red-chairs.jpg", alt: "Бар Соул — люстры и бордовые кресла" },
-  { src: "/images/gallery/chandelier-rays.jpg", alt: "Большая люстра в лучах света" },
-  { src: "/images/gallery/waitress-bw.jpg", alt: "Атмосфера вечера в Соул" },
-  { src: "/images/gallery/dj-peacock-screen.jpg", alt: "Диджей-сет на фоне проекции с павлинами" },
+  { src: "/images/gallery/chandelier-glow-close.jpg", alt: "Люстра в зелени над баром — Соул" },
+  { src: "/images/gallery/lounge-panorama.jpg", alt: "Зал Соул — люстры, зелень и бархатные диваны" },
+  { src: "/images/gallery/chandelier-light-rays.jpg", alt: "Большая люстра в лучах света над столиком" },
+  { src: "/images/gallery/ferns-blue-sofas.jpg", alt: "Синие диваны и папоротники под люстрами" },
+  { src: "/images/gallery/dj-set-peacock-screen.jpg", alt: "Диджей-сет на фоне проекции с павлинами" },
+  { src: "/images/gallery/chandeliers-dancefloor.jpg", alt: "Люстры в зелени над танцполом" },
+  { src: "/images/gallery/chandeliers-ferns-pair.jpg", alt: "Пара люстр в зелени под потолком" },
+  { src: "/images/gallery/hookah-cocktail-bar.jpg", alt: "Кальян и коктейль на баре Соул" },
+  { src: "/images/gallery/bar-staff-green-glow.jpg", alt: "Бармены за стойкой в зелёной подсветке" },
+  { src: "/images/gallery/lounge-red-velvet-chairs.jpg", alt: "Лаундж-зона — бордовые кресла и синие диваны" },
 ];
 
 // Галерея блюд для карусели на /about ("Еда") — реальные фото с фотосъёмки кухни.
