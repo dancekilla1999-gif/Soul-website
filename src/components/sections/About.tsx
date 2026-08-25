@@ -24,13 +24,17 @@ const aboutSlides = [
   { src: "/images/gallery/dj-peacock-screen.jpg", alt: "Диджей-сет на фоне проекции с павлинами" },
 ];
 
+const defaultIntro =
+  "Место с характером, зелёный «оазис», где каждая деталь дышит стилем и уютом для воплощения самых смелых идей. Авторская гастрономия, коктейли и шоу-программы в одном пространстве. Каждую пятницу и субботу: диджей-сеты и живая музыка.";
+
 interface AboutProps {
-  /** На /about эту же мысль уже раскрывает подзаголовок PageHero сверху страницы —
-   * прячем здесь intro, чтобы текст не дублировался. На главной остаётся как есть. */
-  hideIntro?: boolean;
+  /** На /about первая часть мысли уже раскрыта в подзаголовке PageHero сверху
+   * страницы — сюда передаётся только вторая часть, чтобы не дублировать её
+   * целиком. На главной остаётся полный текст (значение по умолчанию). */
+  intro?: string;
 }
 
-export function About({ hideIntro = false }: AboutProps) {
+export function About({ intro = defaultIntro }: AboutProps) {
   return (
     <section id="about" className="relative overflow-hidden py-20 sm:py-24 lg:py-36">
       <JungleAmbience />
@@ -45,11 +49,7 @@ export function About({ hideIntro = false }: AboutProps) {
             <SectionHeading
               eyebrow="О пространстве"
               title="Вечер в другом ритме"
-              intro={
-                hideIntro
-                  ? undefined
-                  : "Место с характером, зелёный «оазис», где каждая деталь дышит стилем и уютом для воплощения самых смелых идей. Авторская гастрономия, коктейли и шоу-программы в одном пространстве. Каждую пятницу и субботу: диджей-сеты и живая музыка."
-              }
+              intro={intro}
             />
 
             <Reveal delay={0.2}>
