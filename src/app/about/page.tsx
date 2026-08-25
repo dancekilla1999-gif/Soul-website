@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { About } from "@/components/sections/About";
+import { About, aboutFoodSlides } from "@/components/sections/About";
 import { ConceptStates } from "@/components/sections/ConceptStates";
 import { Atmosphere } from "@/components/sections/Atmosphere";
 import { WhyUs } from "@/components/sections/WhyUs";
@@ -20,7 +20,10 @@ export default function AboutPage() {
         title="О нас"
         subtitle="Оазис в центре Москвы, место с характером, где каждая деталь дышит стилем и уютом для воплощения самых смелых идей."
       />
-      <About intro="Авторская гастрономия, коктейли и шоу-программы в одном пространстве. Каждую пятницу и субботу: диджей-сеты и живая музыка." />
+      <About
+        intro="Авторская гастрономия, коктейли и шоу-программы в одном пространстве. Каждую пятницу и субботу: диджей-сеты и живая музыка."
+        slides={aboutFoodSlides}
+      />
       <ConceptStates />
       <Atmosphere />
       <WhyUs />
