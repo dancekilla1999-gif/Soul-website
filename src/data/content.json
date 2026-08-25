@@ -722,19 +722,54 @@
       "span": "square"
     },
     {
-      "src": "/images/menu/tartare-beef.jpg",
-      "alt": "Тартар из говядины — подача Соул",
+      "src": "/images/gallery/guests-feather-dancers.jpg",
+      "alt": "Танцовщицы в костюмах с перьями на сцене",
+      "span": "wide"
+    },
+    {
+      "src": "/images/gallery/artist-saxophone-blue.jpg",
+      "alt": "Саксофонист на вечеринке в Соул",
       "span": "square"
     },
     {
-      "src": "/images/menu/salad-caesar.jpg",
-      "alt": "Цезарь — авторская подача Соул",
+      "src": "/images/gallery/event-chandeliers-guests.jpg",
+      "alt": "Гости за столиками под люстрами",
+      "span": "wide"
+    },
+    {
+      "src": "/images/gallery/dancers-feather-costumes.jpg",
+      "alt": "Артисты шоу-программы в перьевых костюмах",
+      "span": "wide"
+    },
+    {
+      "src": "/images/gallery/artist-saxophone-portrait.jpg",
+      "alt": "Портрет саксофониста на сцене Соул",
       "span": "square"
     },
     {
-      "src": "/images/menu/cocktail-pink.jpg",
-      "alt": "Авторский коктейль из барной карты Соул",
+      "src": "/images/gallery/dj-dancers-stage.jpg",
+      "alt": "Диджей и танцовщицы на сцене",
       "span": "square"
+    },
+    {
+      "src": "/images/gallery/event-crowd-dancers.jpg",
+      "alt": "Гости наблюдают шоу-программу",
+      "span": "wide"
+    },
+    {
+      "src": "/images/gallery/event-dj-crowd.jpg",
+      "alt": "Диджей-сет и гости в свете софитов",
+      "span": "wide"
+    },
+    {
+      "src": "/images/gallery/artist-saxophone-crowd.jpg",
+      "alt": "Саксофонист среди гостей вечеринки",
+      "span": "square"
+    },
+    {
+      "src": "/images/gallery/guests-celebration-sparklers.jpg",
+      "alt": "Гости празднуют с бенгальскими огнями",
+      "span": "wide"
     }
   ],
   "faq": [
