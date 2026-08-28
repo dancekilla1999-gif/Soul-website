@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { menu, menuCategories, type MenuCategory } from "@/lib/data";
+import { pickMenuPhoto } from "@/lib/menuPhotos";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Reveal } from "@/components/shared/Reveal";
 import { Button } from "@/components/ui/button";
@@ -17,11 +18,18 @@ const filters: Filter[] = ["Все", ...menuCategories];
 
 export function Menu() {
   const [active, setActive] = useState<Filter>("Все");
+  const lastPhotoSrc = useRef<string | undefined>(undefined);
 
   const items = useMemo(
     () => (active === "Все" ? menu : menu.filter((i) => i.category === active)),
     [active]
   );
+
+  const photo = useMemo(() => {
+    const next = pickMenuPhoto(active, lastPhotoSrc.current);
+    lastPhotoSrc.current = next.src;
+    return next;
+  }, [active]);
 
   return (
     <section id="menu" className="relative overflow-hidden py-20 sm:py-24 lg:py-36">
@@ -112,13 +120,24 @@ export function Menu() {
 
         <Reveal delay={0.15}>
           <div className="relative mt-20 aspect-[21/9] overflow-hidden rounded-sm lg:aspect-[3/1]">
-            <Image
-              src="/images/menu/banner-cheese-board.jpg"
-              alt="Сырная тарелка с мёдом и орехами — подача Соул"
-              fill
-              sizes="(max-width: 1024px) 100vw, 1400px"
-              className="object-cover transition-transform duration-[1.6s] ease-out hover:scale-105"
-            />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={photo.src}
+                initial={{ opacity: 0, scale: 1.04 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 1400px"
+                  className="object-cover transition-transform duration-[1.6s] ease-out hover:scale-105"
+                />
+              </motion.div>
+            </AnimatePresence>
             <div className="absolute inset-0 bg-gradient-to-t from-noir/80 via-noir/20 to-transparent" />
             <p className="absolute bottom-7 left-7 max-w-md text-pretty font-serif text-xl text-bone sm:text-2xl lg:bottom-10 lg:left-10">
               Каждая деталь — часть впечатления
