@@ -33,7 +33,7 @@ export default function PrivacyPage() {
                 от 27.07.2006 № 152-ФЗ «О персональных данных».
               </p>
               <p>
-                Оператор: {site.legalName}. ИНН: <em>уточняется</em>.
+                Оператор: {site.legalName}. ИНН: 610104705022.
                 Адрес: {site.address.city}, {site.address.street}.
                 Контакты: {site.phone}, {site.email}.
               </p>

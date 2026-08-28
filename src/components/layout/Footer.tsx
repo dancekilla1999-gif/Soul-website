@@ -110,7 +110,7 @@ export function Footer() {
         </div>
 
         <p className="mt-4 text-xs leading-relaxed text-ash">
-          {site.legalName}. ОГРНИП: уточняется. ИНН: уточняется. Юридический адрес: {site.address.city}, {site.address.street}.
+          {site.legalName}. ОГРНИП: уточняется. ИНН: 610104705022. Юридический адрес: {site.address.city}, {site.address.street}.
         </p>
       </div>
     </footer>
