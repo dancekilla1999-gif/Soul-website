@@ -37,6 +37,7 @@ export const aboutFoodSlides: CarouselSlide[] = [
   { src: "/images/menu/food-caesar-shrimp.jpg", alt: "Салат с креветками и перепелиными яйцами" },
   { src: "/images/menu/food-caprese.jpg", alt: "Капрезе с томатами и моцареллой" },
   { src: "/images/menu/food-pumpkin-soup.jpg", alt: "Тыквенный крем-суп" },
+  { src: "/images/menu/trout-moss.jpg", alt: "Стейк форели с соусом мисо — подача Соул" },
 ];
 
 const defaultIntro =
