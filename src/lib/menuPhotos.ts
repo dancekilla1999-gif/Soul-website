@@ -50,6 +50,11 @@ const cocktails: MenuPhoto[] = [
   { src: "/images/gallery/cocktail-hookah.jpg", alt: "Коктейль и кальян в лаунже Соул" },
 ];
 
+const hookah: MenuPhoto[] = [
+  { src: "/images/gallery/hookah-lounge.jpg", alt: "Кальян в лаундже Соул" },
+  { src: "/images/gallery/hookah-cocktail-bar.jpg", alt: "Кальян у барной стойки" },
+];
+
 const all: MenuPhoto[] = [
   ...starters,
   ...salads,
@@ -57,10 +62,12 @@ const all: MenuPhoto[] = [
   ...rolls,
   ...desserts,
   ...cocktails,
+  ...hookah,
 ].filter((photo, i, arr) => arr.findIndex((p) => p.src === photo.src) === i);
 
 export const menuPhotoPools: Record<Filter, MenuPhoto[]> = {
   "Все": all,
+  "Кальян": hookah,
   "Холодные закуски": starters,
   "Салаты": salads,
   "Горячие закуски": starters,

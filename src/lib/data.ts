@@ -37,6 +37,7 @@ export const advantages = [
 ] as const;
 
 export type MenuCategory =
+  | "Кальян"
   | "Холодные закуски"
   | "Салаты"
   | "Горячие закуски"
@@ -63,6 +64,7 @@ export interface MenuItem {
 }
 
 export const menuCategories: MenuCategory[] = [
+  "Кальян",
   "Холодные закуски",
   "Салаты",
   "Горячие закуски",
