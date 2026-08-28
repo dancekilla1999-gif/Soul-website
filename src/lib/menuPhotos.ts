@@ -1,11 +1,11 @@
 /**
  * Пул фото для нижнего баннера страницы «Меню» (`Menu.tsx`).
- * При переключении категории баннер показывает случайное фото из пула,
- * подобранного под смысл категории — так, чтобы «Закуски», «Бар» и
- * «Горячие блюда» визуально отличались друг от друга.
+ * При переключении категории баннер показывает случайное фото из пула
+ * этой конкретной категории — так, чтобы в «Супах» не выпадал бургер,
+ * а в «Пиццах» — не суп. Каждый пул подобран по смыслу категории.
  *
  * Все изображения — из уже существующей библиотеки сайта
- * (`public/images/menu/`, `public/images/gallery/`), новых фото не добавлено.
+ * (`public/images/menu/`, `public/images/gallery/`).
  */
 
 import type { MenuCategory } from "./data";
@@ -17,7 +17,7 @@ export interface MenuPhoto {
 
 type Filter = "Все" | MenuCategory;
 
-const starters: MenuPhoto[] = [
+const coldStarters: MenuPhoto[] = [
   { src: "/images/menu/tartare-beef.jpg", alt: "Тартар из говядины — подача Соул" },
   { src: "/images/menu/food-tomato-bruschetta.jpg", alt: "Брускетта с томатами" },
   { src: "/images/menu/food-caprese.jpg", alt: "Капрезе с моцареллой и томатами" },
@@ -27,17 +27,40 @@ const starters: MenuPhoto[] = [
 const salads: MenuPhoto[] = [
   { src: "/images/menu/salad-caesar.jpg", alt: "Салат Цезарь" },
   { src: "/images/menu/food-caesar-shrimp.jpg", alt: "Цезарь с креветками" },
-  { src: "/images/menu/food-caprese.jpg", alt: "Капрезе с моцареллой и томатами" },
+];
+
+const soups: MenuPhoto[] = [
+  { src: "/images/menu/food-pumpkin-soup.jpg", alt: "Тыквенный крем-суп" },
+  { src: "/images/menu/soup-mussels.jpg", alt: "Томатный суп с морепродуктами" },
 ];
 
 const mains: MenuPhoto[] = [
-  { src: "/images/menu/food-pumpkin-soup.jpg", alt: "Тыквенный крем-суп" },
   { src: "/images/menu/food-stuffed-peppers.jpg", alt: "Фаршированный перец" },
+  { src: "/images/menu/trout-moss.jpg", alt: "Стейк форели с соусом мисо" },
+];
+
+const grill: MenuPhoto[] = [
+  { src: "/images/menu/trout-moss.jpg", alt: "Стейк форели с соусом мисо на гриле" },
+];
+
+const pasta: MenuPhoto[] = [
+  { src: "/images/menu/pasta-seafood-ink.jpg", alt: "Лингвини с морепродуктами" },
+];
+
+const burgers: MenuPhoto[] = [
+  { src: "/images/menu/burger-chicken.jpg", alt: "Бургер с курицей" },
+];
+
+const pizza: MenuPhoto[] = [
+  { src: "/images/menu/pizza-burrata-pesto.jpg", alt: "Пицца с песто и бураттой" },
 ];
 
 const rolls: MenuPhoto[] = [
   { src: "/images/menu/food-sushi-rolls.jpg", alt: "Роллы — подача Соул" },
-  { src: "/images/menu/banner-cheese-board.jpg", alt: "Сырная тарелка с мёдом и орехами" },
+];
+
+const sides: MenuPhoto[] = [
+  { src: "/images/menu/sweet-potato-fries.jpg", alt: "Батат фри с пармезаном" },
 ];
 
 const desserts: MenuPhoto[] = [
@@ -56,10 +79,15 @@ const hookah: MenuPhoto[] = [
 ];
 
 const all: MenuPhoto[] = [
-  ...starters,
+  ...coldStarters,
   ...salads,
+  ...soups,
   ...mains,
+  ...pasta,
+  ...burgers,
+  ...pizza,
   ...rolls,
+  ...sides,
   ...desserts,
   ...cocktails,
   ...hookah,
@@ -68,18 +96,18 @@ const all: MenuPhoto[] = [
 export const menuPhotoPools: Record<Filter, MenuPhoto[]> = {
   "Все": all,
   "Кальян": hookah,
-  "Холодные закуски": starters,
+  "Холодные закуски": coldStarters,
   "Салаты": salads,
-  "Горячие закуски": starters,
-  "Супы": mains,
+  "Горячие закуски": coldStarters,
+  "Супы": soups,
   "Горячие блюда": mains,
-  "Гриль": mains,
-  "Пасты": mains,
-  "Бургеры": mains,
-  "Пиццы": mains,
+  "Гриль": grill,
+  "Пасты": pasta,
+  "Бургеры": burgers,
+  "Пиццы": pizza,
   "Роллы / Гунканы": rolls,
-  "Гарниры": mains,
-  "Соусы": mains,
+  "Гарниры": sides,
+  "Соусы": sides,
   "Десерты": desserts,
   "Коктейли": cocktails,
 };
