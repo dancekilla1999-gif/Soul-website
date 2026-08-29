@@ -640,8 +640,9 @@
         "Живой вокал",
         "12+"
       ],
-      "poster": "/images/events/belitser-27-09-card.jpg",
-      "featured": true
+      "poster": "/images/events/belitser-27-09.jpg",
+      "featured": true,
+      "posterHasInfo": true
     },
     {
       "date": "11.09",

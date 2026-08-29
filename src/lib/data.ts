@@ -94,6 +94,9 @@ export interface EventItem {
   /** Необязательное видео вместо статичной картинки (используется poster как fallback/постер видео) */
   video?: string;
   featured: boolean;
+  /** Постер уже содержит всю инфографику (дата, время, имя) — не дублировать
+   *  текстом поверх карточки, оставить только бейдж "Главное событие". */
+  posterHasInfo?: boolean;
 }
 
 export const events = content.events as EventItem[];

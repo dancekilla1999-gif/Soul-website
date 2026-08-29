@@ -69,7 +69,9 @@ export function Events({ showHeading = true }: { showHeading?: boolean } = {}) {
                     )}
                   />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-noir from-0% via-noir/85 via-55% to-transparent" />
+                {!event.posterHasInfo && (
+                  <div className="absolute inset-0 bg-gradient-to-t from-noir from-0% via-noir/85 via-55% to-transparent" />
+                )}
 
                 {event.video && (
                   <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-noir from-0% via-noir via-50% to-transparent" />
@@ -81,41 +83,43 @@ export function Events({ showHeading = true }: { showHeading?: boolean } = {}) {
                   </span>
                 )}
 
-                <div className="absolute inset-x-0 bottom-0 p-6 lg:p-7">
-                  <div className="flex items-baseline gap-3">
-                    <span className="font-serif text-3xl text-gold-soft">
-                      {event.date}
-                    </span>
-                    <span className="text-[12px] uppercase tracking-eyebrow text-ash">
-                      {event.weekday}
-                    </span>
-                  </div>
+                {!event.posterHasInfo && (
+                  <div className="absolute inset-x-0 bottom-0 p-6 lg:p-7">
+                    <div className="flex items-baseline gap-3">
+                      <span className="font-serif text-3xl text-gold-soft">
+                        {event.date}
+                      </span>
+                      <span className="text-[12px] uppercase tracking-eyebrow text-ash">
+                        {event.weekday}
+                      </span>
+                    </div>
 
-                  <h3 className="mt-3 font-serif text-2xl text-bone">
-                    {event.title}
-                  </h3>
-                  <p className="mt-1.5 text-pretty text-sm text-ash">
-                    {event.subtitle}
-                  </p>
+                    <h3 className="mt-3 font-serif text-2xl text-bone">
+                      {event.title}
+                    </h3>
+                    <p className="mt-1.5 text-pretty text-sm text-ash">
+                      {event.subtitle}
+                    </p>
 
-                  <div className="mt-5 space-y-2 border-t border-white/[0.07] pt-4">
-                    {event.time && (
-                      <p className="flex items-center gap-2 text-xs tracking-wide2 text-bone">
-                        <Clock className="h-3.5 w-3.5 text-gold" />
-                        Начало в {event.time}
-                      </p>
-                    )}
-                    {event.lineup.map((line) => (
-                      <p
-                        key={line}
-                        className="flex items-center gap-2 text-xs tracking-wide2 text-ash"
-                      >
-                        <Music4 className="h-3.5 w-3.5 text-gold" />
-                        {line}
-                      </p>
-                    ))}
+                    <div className="mt-5 space-y-2 border-t border-white/[0.07] pt-4">
+                      {event.time && (
+                        <p className="flex items-center gap-2 text-xs tracking-wide2 text-bone">
+                          <Clock className="h-3.5 w-3.5 text-gold" />
+                          Начало в {event.time}
+                        </p>
+                      )}
+                      {event.lineup.map((line) => (
+                        <p
+                          key={line}
+                          className="flex items-center gap-2 text-xs tracking-wide2 text-ash"
+                        >
+                          <Music4 className="h-3.5 w-3.5 text-gold" />
+                          {line}
+                        </p>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </motion.li>
           ))}
