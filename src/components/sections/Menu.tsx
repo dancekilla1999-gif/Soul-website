@@ -119,7 +119,7 @@ export function Menu() {
         </motion.ul>
 
         <Reveal delay={0.15}>
-          <div className="relative mt-20 aspect-[21/9] overflow-hidden rounded-sm lg:aspect-[3/1]">
+          <div className="relative mt-20 h-[320px] w-full overflow-hidden rounded-sm bg-noir sm:h-[420px] lg:h-[520px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={photo.src}
@@ -134,7 +134,7 @@ export function Menu() {
                   alt={photo.alt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 1400px"
-                  className="object-cover transition-transform duration-[1.6s] ease-out hover:scale-105"
+                  className="object-contain transition-transform duration-[1.6s] ease-out hover:scale-105"
                 />
               </motion.div>
             </AnimatePresence>
