@@ -73,7 +73,8 @@ const desserts: MenuPhoto[] = [
 
 const cocktails: MenuPhoto[] = [
   { src: "/images/menu/cocktail-pink.jpg", alt: "Сигнатурный коктейль Соул" },
-  { src: "/images/gallery/bar.jpg", alt: "Подсвеченная барная стойка Соул под хрустальной люстрой" },
+  { src: "/images/menu/cocktail-spritz-trio.jpg", alt: "Три коктейля на барной стойке" },
+  { src: "/images/menu/cocktail-toast.jpg", alt: "Коктейли за столом — тост гостей" },
 ];
 
 const hookah: MenuPhoto[] = [
