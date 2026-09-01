@@ -293,3 +293,33 @@ img[src*="logo"] {
   background-color: transparent !important;
   box-shadow: none;
 }
+
+/* ——— Премиальный блик: золотая полоса света, пробегающая по кнопке при наведении ——— */
+.btn-sheen::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: -60%;
+  width: 45%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 248, 230, 0.55) 50%,
+    transparent 100%
+  );
+  transform: skewX(-18deg);
+  pointer-events: none;
+  opacity: 0;
+}
+.btn-sheen:hover::before {
+  animation: sheen-sweep 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes sheen-sweep {
+  0% { left: -60%; opacity: 0; }
+  15% { opacity: 1; }
+  100% { left: 135%; opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-sheen:hover::before { animation: none; }
+}
