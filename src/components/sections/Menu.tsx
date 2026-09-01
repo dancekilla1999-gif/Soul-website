@@ -1,13 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { menu, menuCategories, type MenuCategory } from "@/lib/data";
-import { pickMenuPhoto } from "@/lib/menuPhotos";
+import { menuCarouselPhotos } from "@/lib/menuPhotos";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Reveal } from "@/components/shared/Reveal";
+import { Carousel } from "@/components/shared/Carousel";
 import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/shared/MagneticButton";
 import { cn } from "@/lib/utils";
@@ -18,18 +18,11 @@ const filters: Filter[] = ["Все", ...menuCategories];
 
 export function Menu() {
   const [active, setActive] = useState<Filter>("Все");
-  const lastPhotoSrc = useRef<string | undefined>(undefined);
 
   const items = useMemo(
     () => (active === "Все" ? menu : menu.filter((i) => i.category === active)),
     [active]
   );
-
-  const photo = useMemo(() => {
-    const next = pickMenuPhoto(active, lastPhotoSrc.current);
-    lastPhotoSrc.current = next.src;
-    return next;
-  }, [active]);
 
   return (
     <section id="menu" className="relative overflow-hidden py-20 sm:py-24 lg:py-36">
@@ -119,32 +112,15 @@ export function Menu() {
         </motion.ul>
 
         <Reveal delay={0.15}>
-          <div className="relative mt-20 h-[320px] w-full overflow-hidden rounded-sm bg-noir sm:h-[420px] lg:h-[520px]">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={photo.src}
-                initial={{ opacity: 0, scale: 1 }}
-                animate={{ opacity: 1, scale: 1.06 }}
-                exit={{ opacity: 0 }}
-                transition={{
-                  opacity: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-                  scale: { duration: 14, ease: "linear" },
-                }}
-                className="absolute inset-0"
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 1400px"
-                  className="object-contain transition-transform duration-[1.6s] ease-out hover:scale-105"
-                />
-              </motion.div>
-            </AnimatePresence>
-            <div className="absolute inset-0 bg-gradient-to-t from-noir/80 via-noir/20 to-transparent" />
-            <p className="absolute bottom-7 left-7 max-w-md text-pretty font-serif text-xl text-bone sm:text-2xl lg:bottom-10 lg:left-10">
-              Каждая деталь — часть впечатления
-            </p>
+          <div className="mt-20">
+            <Carousel
+              slides={menuCarouselPhotos}
+              fit="contain"
+              showCaption
+              sizes="(max-width: 1024px) 100vw, 1400px"
+              intervalMs={4000}
+              className="aspect-auto h-[320px] bg-noir sm:h-[420px] lg:h-[520px]"
+            />
           </div>
         </Reveal>
       </div>

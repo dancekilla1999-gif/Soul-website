@@ -19,16 +19,34 @@ interface CarouselProps {
   slides: CarouselSlide[];
   className?: string;
   intervalMs?: number;
+  /**
+   * cover — фото заполняет рамку (карусель интерьера);
+   * contain — фото показывается целиком, без кадрирования и зума
+   * (карусель блюд в меню: фото не режем и не приближаем).
+   */
+  fit?: "cover" | "contain";
+  /** Подпись (alt) слайда внизу — для блюд и коктейлей */
+  showCaption?: boolean;
+  /** Атрибут sizes для next/image — задать, если карусель шире половины экрана */
+  sizes?: string;
 }
 
 /**
  * Лёгкая автопрокручиваемая карусель фото (без внешних библиотек —
  * тот же стек, что и остальной сайт: framer-motion + next/image).
- * Стрелки + точки для ручного листания, свайп на тач-устройствах,
+ * Стрелки (всегда видны — на телефоне нет hover) + точки для ручного
+ * листания, свайп на тач-устройствах,
  * клик по фото открывает полноэкранный просмотр, пауза при наведении,
  * поддержка prefers-reduced-motion (автопрокрутка отключается).
  */
-export function Carousel({ slides, className, intervalMs = 5000 }: CarouselProps) {
+export function Carousel({
+  slides,
+  className,
+  intervalMs = 5000,
+  fit = "cover",
+  showCaption = false,
+  sizes = "(max-width: 1024px) 100vw, 50vw",
+}: CarouselProps) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -77,7 +95,7 @@ export function Carousel({ slides, className, intervalMs = 5000 }: CarouselProps
         <motion.div
           key={index}
           initial={{ opacity: 0, scale: 1 }}
-          animate={{ opacity: 1, scale: 1.06 }}
+          animate={{ opacity: 1, scale: fit === "cover" ? 1.06 : 1 }}
           exit={{ opacity: 0 }}
           transition={{
             opacity: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
@@ -95,15 +113,29 @@ export function Carousel({ slides, className, intervalMs = 5000 }: CarouselProps
               src={slides[index].src}
               alt={slides[index].alt}
               fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              sizes={sizes}
               priority={index === 0}
-              className="object-cover object-[center_40%]"
+              className={fit === "cover" ? "object-cover object-[center_40%]" : "object-contain"}
             />
           </button>
         </motion.div>
       </AnimatePresence>
 
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-noir/60 via-transparent to-transparent" />
+      <div
+        className={cn(
+          "pointer-events-none absolute inset-0 bg-gradient-to-t via-transparent to-transparent",
+          fit === "cover" ? "from-noir/60" : "from-noir/75"
+        )}
+      />
+
+      {showCaption && (
+        <p
+          key={`caption-${index}`}
+          className="pointer-events-none absolute bottom-10 left-6 right-16 z-10 text-pretty font-serif text-lg text-bone sm:bottom-11 sm:left-8 sm:text-2xl"
+        >
+          {slides[index].alt}
+        </p>
+      )}
 
       <span className="pointer-events-none absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-noir/50 text-bone opacity-0 backdrop-blur-sm transition-all duration-300 group-hover/carousel:opacity-100">
         <Expand className="h-4 w-4" />
@@ -115,7 +147,7 @@ export function Carousel({ slides, className, intervalMs = 5000 }: CarouselProps
             type="button"
             aria-label="Предыдущее фото"
             onClick={() => go(index - 1)}
-            className="absolute left-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-noir/50 text-bone opacity-0 backdrop-blur-sm transition-all duration-300 hover:border-gold hover:text-gold group-hover/carousel:opacity-100 focus-visible:opacity-100"
+            className="absolute left-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-noir/50 text-bone opacity-80 backdrop-blur-sm transition-all duration-300 hover:border-gold hover:text-gold hover:opacity-100 focus-visible:opacity-100"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
@@ -123,7 +155,7 @@ export function Carousel({ slides, className, intervalMs = 5000 }: CarouselProps
             type="button"
             aria-label="Следующее фото"
             onClick={() => go(index + 1)}
-            className="absolute right-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-noir/50 text-bone opacity-0 backdrop-blur-sm transition-all duration-300 hover:border-gold hover:text-gold group-hover/carousel:opacity-100 focus-visible:opacity-100"
+            className="absolute right-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-noir/50 text-bone opacity-80 backdrop-blur-sm transition-all duration-300 hover:border-gold hover:text-gold hover:opacity-100 focus-visible:opacity-100"
           >
             <ChevronRight className="h-4 w-4" />
           </button>
