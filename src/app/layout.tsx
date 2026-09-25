@@ -396,7 +396,9 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
-  category: "restaurant",
+     verification: {
+       yandex: "9e9ebe1767004f41",
+     },  category: "restaurant",
 };
 
 export const viewport: Viewport = {
